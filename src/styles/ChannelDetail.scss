@@ -1,0 +1,146 @@
+@use 'variables';
+
+.channelDetail {
+	&__bannerImage {
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 150px;
+		border-radius: 5px;
+	}
+	&__details {
+		display: flex;
+		flex-direction: column;
+		&-first-box {
+			display: flex;
+			flex-direction: column;
+			&-thumbnail {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 1em 0;
+				&-image {
+					width: 60px;
+					height: 60px;
+					background-position: center;
+					background-size: cover;
+					border-radius: 50%;
+					box-shadow: 0 0 8px #ccc;
+				}
+			}
+			&-info {
+				&-title {
+					font-size: 1.8rem;
+					font-weight: normal;
+					text-align: center;
+					letter-spacing: 0.5px;
+				}
+				&-stats {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					margin: 0.25em;
+					font-size: 1.2rem;
+					span {
+						text-align: center;
+					}
+				}
+			}
+		}
+		&-second-box {
+			&-buttons {
+				margin: 1em 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&-sub,
+				&-join {
+					width: 45%;
+					margin: 0.25em;
+					padding: 0.4em 0;
+					border-radius: 20px;
+					font-size: 1.6rem;
+					border: none;
+					cursor: pointer;
+					transition: background-color 0.3s;
+				}
+				&-sub {
+					background-color: variables.$main-color;
+					&:hover {
+						background-color: variables.$main-color-darker;
+					}
+				}
+				&-join {
+					background-color: #eee;
+					&:hover {
+						background-color: #c8c8c8;
+					}
+				}
+			}
+		}
+	}
+}
+@media (min-width: 576px) {
+	.channelDetail {
+		&__bannerImage {
+			height: 200px;
+		}
+		&__details {
+			&-thumbnail {
+				&-image {
+					width: 70px;
+					height: 70px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.channelDetail {
+		&__details {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			&-first-box {
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				&-thumbnail {
+					&-image {
+						width: 90px;
+						height: 90px;
+						margin: 0 1em;
+					}
+				}
+				&-info {
+					&-stats {
+						flex-direction: column;
+						margin: 0.3em 0;
+						span {
+							margin: 0.15em 0;
+						}
+						.icon {
+							display: none;
+						}
+					}
+				}
+			}
+			&-second-box {
+				&-buttons {
+					width: 90%;
+					justify-content: flex-end;
+					&-sub,
+					&-join {
+						width: auto;
+						margin: 0.5em;
+						padding: 0.5em 1.5em;
+						font-size: 1.7rem;
+					}
+				}
+			}
+		}
+	}
+}

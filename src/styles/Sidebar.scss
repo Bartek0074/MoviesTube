@@ -1,0 +1,68 @@
+@use 'variables';
+
+.categories {
+	display: flex;
+	flex-direction: row;
+	position: sticky;
+	padding: 0.5em 0;
+	padding-right: 0.75em;
+	top: 49px;
+	height: fit-content;
+	overflow-x: scroll;
+	background-color: variables.$background-color;
+	border-right: 0.75px solid variables.$font-color;
+	.category-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 0.25em;
+		padding: 0 1em;
+		height: 28px;
+		font-size: 1.4rem;
+		color: variables.$font-color;
+		background: none;
+		border: none;
+		border: 1px solid variables.$border-color;
+		border-radius: 14px;
+		cursor: pointer;
+		transition: background-color 0.3s;
+		&:hover {
+			background-color: variables.$main-color-darker;
+		}
+		&--active {
+			background-color: variables.$main-color-darkest;
+		}
+		span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		span:first-child {
+			transform: scale(1.1);
+			margin-right: 0.5em;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.categories {
+		position: sticky;
+		top: 71px;
+	}
+}
+
+@media (min-width: 768px) {
+	.categories {
+		flex-direction: column;
+		position: fixed;
+		top: 71px;
+		height: auto;
+		bottom: 0px;
+		overflow: scroll;
+		.category-button {
+			padding: 0.25em 0.5em;
+			margin: 0.25em;
+			font-size: 1.6rem;
+		}
+	}
+}

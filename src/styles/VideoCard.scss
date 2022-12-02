@@ -1,0 +1,97 @@
+@use 'variables';
+
+
+.videoCard {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	&__img {
+		position: relative;
+		border-radius: 25px;
+		overflow: hidden;
+		height: 70%;
+		&-image {
+			height: 100%;
+			background-position: center;
+			background-size: cover;
+		}
+		&-shadow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #00000050;
+			transition: background-color 0.3s;
+			&:hover {
+				background-color: #00000000;
+			}
+		}
+		&:hover .videoCard__img-image {
+			animation: hoverAnimation 10s infinite;
+		}
+		@keyframes hoverAnimation {
+			0% {
+				background-size: auto;
+				opacity: 0;
+				background-position: 50% 25%;
+			}
+			5% {
+				opacity: 1;
+				background-position: 50% 25%;
+			}
+			45% {
+				opacity: 1;
+			}
+			49% {
+				opacity: 0;
+				background-position: 50% 75%;
+			}
+			50% {
+				background-position: 25% 50%;
+			}
+			51% {
+				opacity: 0;
+				background-position: 25% 50%;
+			}
+			55% {
+				opacity: 1;
+			}
+			95% {
+				opacity: 1;
+				background-position: 75% 50%;
+			}
+			100% {
+				background-size: auto;
+				opacity: 0;
+				background-position: 75% 50%;
+			}
+		}
+		cursor: pointer;
+	}
+	&__title {
+		margin: 0.5em 0 0.25em;
+		font-size: 1.4rem;
+		color: variables.$font-color;
+		&:link {
+			text-decoration: none;
+		}
+	}
+	&__channel {
+		display: flex;
+		align-items: center;
+		font-size: 1.2rem;
+		color: #a8a8a8;
+		transition: color 0.3s;
+		p {
+			margin-right: 3px;
+		}
+		&:hover {
+			color: variables.$font-color;
+		}
+		&:link {
+			text-decoration: none;
+		}
+	}
+	background: none;
+}

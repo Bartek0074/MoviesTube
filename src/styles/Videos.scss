@@ -1,0 +1,35 @@
+@use 'variables';
+
+.videos {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	&__card {
+		width: 90%;
+		aspect-ratio: 4/3;
+	}
+}
+
+@media (min-width:576px) {
+	.videos {
+		&__card {
+			width: 260px;
+			margin: 0.5em;
+		}
+	}
+}
+@media (min-width:768px) {
+	.videos {
+		&__card {
+			width: 290px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.videos {
+		&__card {
+			width: 320px;
+		}
+	}
+}

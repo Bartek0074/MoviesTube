@@ -1,0 +1,129 @@
+@use 'variables';
+
+.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	display: flex;
+	flex-direction: row;
+	padding: 0.5em;
+	background-color: variables.$background-color;
+	&__homeBtn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0.25em;
+		color: variables.$main-color;
+		border: none;
+		background: none;
+		letter-spacing: -0.5px;
+		cursor: pointer;
+		font-size: 1.8rem;
+		font-weight: bold;
+		span:first-child {
+			color: variables.$font-color;
+		}
+		&-icon {
+			color: #fff;
+			font-size: 2.4rem;
+			margin-right: -2px;
+			margin-left: -1px;
+			transition: transform 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+				color 0.9s;
+		}
+		&:hover .navbar__homeBtn-icon {
+			transform: rotateY(360deg);
+			color: variables.$main-color;
+		}
+		&:link {
+			text-decoration: none;
+		}
+	}
+	form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		input {
+			padding-left: 0.4em;
+			width: 70%;
+			height: 28px;
+			background-color: #121212;
+			border: 1px solid variables.$border-color;
+			color: variables.$font-color;
+			border-top-left-radius: 15px;
+			border-bottom-left-radius: 15px;
+			font-size: 1.6rem;
+			transition: border-color 0.3s;
+			&:focus {
+				outline: none;
+				border-color: variables.$main-color-darker;
+			}
+		}
+		button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0.5em 1em;
+			height: 28px;
+			background-color: #212121;
+			border: 1px solid variables.$border-color;
+			color: variables.$font-color;
+			border-left: none;
+			border-top-right-radius: 15px;
+			font-size: 1.4rem;
+			border-bottom-right-radius: 15px;
+			cursor: pointer;
+			transition: color 0.3s;
+			&:hover {
+				color: variables.$main-color;
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.navbar {
+		padding: 1em 0.5em;
+		&__homeBtn {
+			font-size: 2rem;
+			&-icon {
+				font-size: 2.5rem;
+			}
+		}
+		form {
+			input {
+				padding-left: 0.5em;
+				height: 32px;
+				font-size: 1.8rem;
+				width: 100%;
+			}
+			button {
+				height: 32px;
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.navbar {
+		&__homeBtn {
+			font-size: 2.2rem;
+			&-icon {
+				font-size: 2.7rem;
+			}
+		}
+		form {
+			input {
+				padding-left: 0.75em;
+				height: 36px;
+				font-size: 2rem;
+			}
+			button {
+				height: 36px;
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
