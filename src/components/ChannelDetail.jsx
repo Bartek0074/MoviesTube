@@ -42,7 +42,7 @@ export default function ChannelDetail() {
 					</div>
 					<div className='channelDetail__details-first-box-info'>
 						<h2 className='channelDetail__details-first-box-info-title'>
-							{channelDetail?.snippet?.title}MrBeast
+							{channelDetail?.snippet?.title}
 						</h2>
 						<div className='channelDetail__details-first-box-info-stats'>
 							<span>@{channelDetail?.snippet?.title}</span>
