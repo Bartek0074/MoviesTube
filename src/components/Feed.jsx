@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Sidebar, Videos } from './index';
-import '../styles/Feed.scss';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
+import '../styles/Feed.scss';
 
 export default function Feed() {
 	const [selectedCategory, setSelectedCategory] = useState('New');
@@ -9,7 +9,7 @@ export default function Feed() {
 
 	useEffect(() => {
 		fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-			setVideos(data.items).catch(err => console.log(err))
+			setVideos(data.items).catch((err) => console.log(err))
 		);
 	}, [selectedCategory]);
 

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
+import { numFormatter } from '../utils/numFormatter.js';
 import { BsDot } from 'react-icons/bs';
 import '../styles/ChannelDetail.scss';
-import { numFormatter } from '../utils/numFormatter.js';
 
 export default function ChannelDetail() {
 	const { id } = useParams();

@@ -3,9 +3,9 @@
 .feed {
 	display: flex;
 	flex-direction: column;
-	&__videos{
+	&__videos {
 		&-title {
-			margin: .5em 1em;
+			margin: 0.5em 1em;
 			font-size: 1.8rem;
 			span {
 				color: variables.$main-color;
@@ -16,8 +16,8 @@
 
 @media (min-width: 576px) {
 	.feed {
-		&__videos{
-			&-title{
+		&__videos {
+			&-title {
 				font-size: 2rem;
 			}
 		}
@@ -27,9 +27,9 @@
 @media (min-width: 768px) {
 	.feed {
 		flex-direction: row;
-		&__videos{
+		&__videos {
 			margin-left: 136px;
-			&-title{
+			&-title {
 				font-size: 2.6rem;
 			}
 		}
@@ -38,11 +38,10 @@
 
 @media (min-width: 992px) {
 	.feed {
-		&__videos{
-			&-title{
+		&__videos {
+			&-title {
 				font-size: 3.2rem;
 			}
 		}
 	}
 }
-

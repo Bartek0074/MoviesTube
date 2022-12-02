@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { categories } from '../utils/constants';
 import '../styles/Sidebar.scss';
 
-export default function Sidebar(props) {
-	const { selectedCategory, setSelectedCategory } = props;
+export default function Sidebar({ selectedCategory, setSelectedCategory }) {
+
 	return (
 		<div className='categories'>
 			{categories.map((category, id) => {

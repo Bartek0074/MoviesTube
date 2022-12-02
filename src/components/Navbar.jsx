@@ -1,12 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { BsPlayFill, BsSearch } from 'react-icons/bs';
 import '../styles/Navbar.scss';
 
 export default function Navbar() {
 	const [searchTerm, setSearchTerm] = useState('');
-
 	const navigate = useNavigate();
 
 	const onClickHandle = (e) => {
@@ -16,6 +15,7 @@ export default function Navbar() {
 			setSearchTerm('');
 		}
 	};
+
 	return (
 		<nav className='navbar'>
 			<Link className='navbar__homeBtn' to='/'>

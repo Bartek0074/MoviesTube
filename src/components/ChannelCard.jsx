@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AiFillCheckCircle } from 'react-icons/ai';
 import '../styles/ChannelCard.scss';
-import {AiFillCheckCircle} from 'react-icons/ai'
 
-export default function ChannelCard(props) {
-	const { video } = props;
-	
+export default function ChannelCard({ video }) {
 	return (
 		<div className='channelCard'>
 			<Link to={`/channel/${video.id.channelId}`} className='channelCard__img'>
@@ -16,7 +14,13 @@ export default function ChannelCard(props) {
 					}}
 				></div>
 			</Link>
-      <Link to={`/channel/${video.id.channelId}`} className='channelCard__title'><p>{video.snippet.title} </p><AiFillCheckCircle/></Link>
+			<Link
+				to={`/channel/${video.id.channelId}`}
+				className='channelCard__title'
+			>
+				<p>{video.snippet.title} </p>
+				<AiFillCheckCircle />
+			</Link>
 		</div>
 	);
 }
