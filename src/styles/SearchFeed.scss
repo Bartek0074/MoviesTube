@@ -1,0 +1,39 @@
+@use 'variables';
+
+.searchFeed {
+	&__title {
+		margin: 0.5em 1em;
+		font-size: 1.8rem;
+		span {
+			color: variables.$main-color;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.searchFeed {
+			&__title {
+				font-size: 2rem;
+			}
+		
+	}
+}
+
+@media (min-width: 768px) {
+	.searchFeed {
+			&__title {
+				font-size: 2.6rem;
+			}
+		
+	}
+}
+
+@media (min-width: 992px) {
+	.searchFeed {
+			&__title {
+				font-size: 3.2rem;
+			}
+		
+	}
+}
+
