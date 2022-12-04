@@ -1,17 +1,11 @@
 @use 'variables';
 
 .categories {
-	z-index: 1;
 	display: flex;
 	flex-direction: row;
-	position: sticky;
 	padding: 0.5em 0;
-	padding-right: 0.75em;
-	top: 49px;
-	height: fit-content;
 	overflow-x: scroll;
 	background-color: variables.$background-color;
-	border-right: 0.75px solid variables.$font-color;
 	.category-button {
 		display: flex;
 		justify-content: center;
@@ -45,22 +39,10 @@
 	}
 }
 
-@media (min-width: 576px) {
-	.categories {
-		position: sticky;
-		top: 67px;
-	}
-}
-
 @media (min-width: 768px) {
 	.categories {
+		padding-right: 1em;
 		flex-direction: column;
-		position: fixed;
-		top: 71px;
-		height: auto;
-		width: 175px;
-		bottom: 0px;
-		overflow: scroll;
 		.category-button {
 			padding: 0.25em 0.5em;
 			margin: 0.25em;

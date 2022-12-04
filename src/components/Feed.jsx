@@ -15,10 +15,12 @@ export default function Feed() {
 
 	return (
 		<div className='feed'>
-			<Sidebar
-				selectedCategory={selectedCategory}
-				setSelectedCategory={setSelectedCategory}
-			/>
+			<div className='feed__sidebar'>
+				<Sidebar
+					selectedCategory={selectedCategory}
+					setSelectedCategory={setSelectedCategory}
+				/>
+			</div>
 			<div className='feed__videos'>
 				<p className='feed__videos-title'>
 					<span>{selectedCategory}</span> videos

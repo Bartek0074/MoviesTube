@@ -3,6 +3,11 @@
 .feed {
 	display: flex;
 	flex-direction: column;
+	&__sidebar {
+		position: sticky;
+		top: 49px;
+		z-index: 1;
+	}
 	&__videos {
 		&-title {
 			margin: 0.5em 1em;
@@ -16,6 +21,9 @@
 
 @media (min-width: 576px) {
 	.feed {
+		&__sidebar {
+			top: 67px;
+		}
 		&__videos {
 			&-title {
 				font-size: 2rem;
@@ -26,9 +34,22 @@
 
 @media (min-width: 768px) {
 	.feed {
+		height: calc(100vh - 70px);
+		overflow: hidden;
 		flex-direction: row;
+		&__sidebar {
+			position: relative;
+			width: 20%;
+			top: 0;
+			height: 100%;
+			border-right: 0.75px solid variables.$font-color;
+			overflow-y: scroll;
+		}
 		&__videos {
-			margin-left: 175px;
+			padding-left: .25em;
+			width: 80%;
+			height: 100%;
+			overflow-y: scroll;
 			&-title {
 				font-size: 2.6rem;
 			}
@@ -38,7 +59,27 @@
 
 @media (min-width: 992px) {
 	.feed {
+		&__sidebar {
+			width: 15%;
+			height: 100%;
+		}
 		&__videos {
+			width: 85%;
+			&-title {
+				font-size: 3.2rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.feed {
+		&__sidebar {
+			width: 12.5%;
+			height: 100%;
+		}
+		&__videos {
+			width: 87.5%;
 			&-title {
 				font-size: 3.2rem;
 			}
