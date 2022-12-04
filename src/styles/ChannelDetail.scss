@@ -2,13 +2,15 @@
 
 .channelDetail {
 	&__bannerImage {
+		position: relative;
 		background-position: center;
 		background-size: cover;
 		width: 100%;
-		height: 150px;
+		aspect-ratio: 5/1;
 		border-radius: 5px;
 	}
 	&__details {
+		margin-top: 0.375em;
 		display: flex;
 		flex-direction: column;
 		&-first-box {
@@ -25,7 +27,7 @@
 					background-position: center;
 					background-size: cover;
 					border-radius: 50%;
-					box-shadow: 0 0 8px #ccc;
+					box-shadow: 0 0 6px #777;
 				}
 			}
 			&-info {
@@ -80,17 +82,102 @@
 			}
 		}
 	}
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 1px solid variables.$border-color;
+		margin-bottom: 1.5em;
+		&-button {
+			position: relative;
+			border: none;
+			background: none;
+			color: variables.$font-color-darker;
+			text-transform: uppercase;
+			padding: 1em 3em;
+			cursor: pointer;
+			transition: color .3s, border-bottom-color .3s;
+			border-bottom: 2px solid transparent;
+			&:hover {
+				color: variables.$font-color;
+			}
+			&--active {
+				color: variables.$font-color;
+				border-bottom-color: variables.$font-color;
+			}
+		}
+	}
+	&__about {
+		&-description {
+			margin: 1.25em 0;
+			&-title {
+				margin-bottom: 0.5em;
+				font-size: 1.6rem;
+				font-weight: bolder;
+			}
+			&-text {
+				font-size: 1.4rem;
+			}
+		}
+		&-info {
+			margin: 1.25em 0;
+			&-title {
+				margin-bottom: 0.5em;
+				font-size: 1.6rem;
+				font-weight: bolder;
+			}
+			&-country,
+			&-joined,
+			&-views {
+				margin: 0.375em 0;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 1.4rem;
+				.icon {
+					margin-right: 0.5em;
+					font-size: 2rem;
+				}
+			}
+		}
+	}
 }
 @media (min-width: 576px) {
 	.channelDetail {
 		&__bannerImage {
-			height: 200px;
+			aspect-ratio: 6/1;
 		}
 		&__details {
 			&-thumbnail {
 				&-image {
 					width: 70px;
 					height: 70px;
+				}
+			}
+		}
+		&__about {
+			&-description {
+				margin: 1.5em 0;
+				&-title {
+					font-size: 1.7rem;
+				}
+				&-text {
+					font-size: 1.5rem;
+				}
+			}
+			&-info {
+				margin: 1.25em 0;
+				&-title {
+					font-size: 1.7rem;
+				}
+				&-country,
+				&-joined,
+				&-views {
+					margin: 0.5em 0;
+					font-size: 1.5rem;
+					.icon {
+						font-size: 2.2rem;
+					}
 				}
 			}
 		}
@@ -118,6 +205,7 @@
 				&-info {
 					&-stats {
 						flex-direction: column;
+						align-items: start;
 						margin: 0.3em 0;
 						span {
 							margin: 0.15em 0;

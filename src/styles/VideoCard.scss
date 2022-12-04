@@ -6,7 +6,7 @@
 	height: 100%;
 	&__img {
 		position: relative;
-		border-radius: 25px;
+		border-radius: 15px;
 		overflow: hidden;
 		height: 70%;
 		&-image {
@@ -76,20 +76,24 @@
 			text-decoration: none;
 		}
 	}
-	&__channel {
+	&__info {
 		display: flex;
+		flex-direction: row;
 		align-items: center;
-		font-size: 1.2rem;
-		color: #a8a8a8;
-		transition: color 0.3s;
-		p {
-			margin-right: 3px;
+		color: variables.$font-color-darker;
+		font-size: 1.1rem;
+		&-channel {
+			color: variables.$font-color-darker;
+			transition: color 0.3s;
+			&:hover{
+				color: variables.$font-color
+			}
+			&:link {
+				text-decoration: none;
+			}
 		}
-		&:hover {
-			color: variables.$font-color;
-		}
-		&:link {
-			text-decoration: none;
+		.icon {
+			font-size: 1.4rem;
 		}
 	}
 	background: none;

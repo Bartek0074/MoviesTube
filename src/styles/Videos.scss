@@ -6,22 +6,24 @@
 	flex-wrap: wrap;
 	&__card {
 		width: 90%;
+		max-width: 330px;
 		aspect-ratio: 4/3;
+		margin: 0.5em 0;
 	}
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 	.videos {
 		&__card {
-			width: 260px;
+			width: 240px;
 			margin: 0.5em;
 		}
 	}
 }
-@media (min-width:768px) {
+@media (min-width: 768px) {
 	.videos {
 		&__card {
-			width: 290px;
+			width: 255px;
 		}
 	}
 }
@@ -29,7 +31,15 @@
 @media (min-width: 992px) {
 	.videos {
 		&__card {
-			width: 320px;
+			width: 270px;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.videos {
+		&__card {
+			width: 285px;
 		}
 	}
 }

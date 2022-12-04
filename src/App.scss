@@ -12,10 +12,17 @@ html {
 	font-size: 62.5%;
 }
 
+
 body {
 	padding: 0 .5em;
 	font-size: 1.6rem;
 	font-family: Arial, Helvetica, sans-serif;
 	color: variables.$font-color;
 	background-color: variables.$background-color;
+}
+
+.wrapper{
+	width: 96%;
+	max-width: 1400px;
+	margin: 0 auto;
 }

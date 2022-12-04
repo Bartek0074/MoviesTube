@@ -6,7 +6,7 @@
 	z-index: 1;
 	display: flex;
 	flex-direction: row;
-	padding: 0.5em;
+	padding: 0.5em 0;
 	background-color: variables.$background-color;
 	&__homeBtn {
 		display: flex;
@@ -84,7 +84,7 @@
 
 @media (min-width: 576px) {
 	.navbar {
-		padding: 1em 0.5em;
+		padding: 1em 0.25em;
 		&__homeBtn {
 			font-size: 2rem;
 			&-icon {

@@ -9,7 +9,7 @@ export default function Feed() {
 
 	useEffect(() => {
 		fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-			setVideos(data.items).catch((err) => console.log(err))
+			setVideos(data.items)
 		);
 	}, [selectedCategory]);
 
