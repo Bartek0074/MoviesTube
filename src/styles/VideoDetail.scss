@@ -1,0 +1,344 @@
+@use './variables';
+
+.videoDetail {
+	position: relative;
+	height: calc(100vh - 49px);
+	overflow: scroll;
+	&__video-wrapper {
+		margin-top: 0.5em;
+		position: relative;
+		padding-top: 56.25%;
+		.videoDetail__video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&__comments-mobile {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 0;
+		background-color: #ffffff33;
+		opacity: 0;
+		transition: opacity .3s;
+		&--active {
+			opacity: 1;
+			height: calc(100vh - 49px);
+		}
+	}
+	&__about-mobile {
+		padding-top: 1em;
+		padding-left: 0.25em;
+		padding-right: 0.25em;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 0;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		background-color: variables.$background-color;
+		opacity: 0;
+		transition: opacity 0.3s;
+		overflow: hidden;
+		&--active {
+			opacity: 1;
+			height: calc(100vh - 49px);
+			overflow: auto;
+		}
+		&-first-box {
+			background-color: variables.$background-color;
+			padding: 0.5em 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px solid variables.$border-color;
+			&-title {
+				font-size: 1.8rem;
+				font-weight: bold;
+				color: variables.$font-color;
+				text-transform: uppercase;
+			}
+			&-button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0.375em;
+				border: none;
+				background: none;
+				font-size: 2.4rem;
+				color: variables.$font-color;
+				cursor: pointer;
+			}
+		}
+		&-title {
+			font-weight: bold;
+			font-size: 1.7rem;
+			margin-top: 1.5em;
+		}
+		&-stats {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			padding: 1.5em 0;
+			border-bottom: 1px solid variables.$border-color;
+			&-stat {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				&-value {
+					font-size: 1.4rem;
+					font-weight: bold;
+				}
+				&-label {
+					font-size: 1.2rem;
+					color: variables.$font-color-darker;
+				}
+			}
+		}
+		&-description {
+			padding: 1.5em 0;
+			font-size: 1.4rem;
+			color: variables.$font-color-darker;
+			border-bottom: 1px solid variables.$border-color;
+		}
+		&-channel {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 1.5em 0;
+			cursor: pointer;
+			&-image {
+				margin-right: 1em;
+				background-size: cover;
+				background-position: center;
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+			&-info {
+				&-title {
+					font-weight: bold;
+					font-size: 1.5rem;
+					margin-bottom: 0.25em;
+				}
+				&-subscribers {
+					font-size: 1.3rem;
+					color: variables.$font-color-darker;
+				}
+			}
+		}
+	}
+	&__details {
+		margin: 0.5em 0;
+		&-title {
+			margin: 0.5em 0 0.25em;
+			color: variables.$font-color;
+			font-size: 1.8rem;
+		}
+		&-info-mobile {
+			display: flex;
+			flex-direction: row;
+			margin: 0.25em 0;
+			cursor: pointer;
+			&-views,
+			&-date,
+			&-more {
+				color: variables.$font-color-darker;
+				font-weight: lighter;
+				margin-right: 0.75em;
+				font-size: 1.3rem;
+			}
+			&-more {
+				margin-right: 0;
+				font-weight: normal;
+			}
+		}
+		&-channel {
+			margin: 1em 0;
+			display: flex;
+			flex-direction: column;
+			&-info {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				&-image {
+					width: 40px;
+					height: 40px;
+					background-position: center;
+					background-size: cover;
+					border-radius: 50%;
+					margin-right: 0.75em;
+					cursor: pointer;
+				}
+				&-name {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					cursor: pointer;
+					&-title {
+						font-size: 1.3rem;
+						font-weight: bold;
+						margin-right: 0.5em;
+					}
+					&-subscribers {
+						font-size: 1.1rem;
+					}
+					&-subscribe-button {
+						margin-left: auto;
+						padding: 0.4em 0.8em;
+						border-radius: 20px;
+						font-size: 1.6rem;
+						border: none;
+						background-color: variables.$main-color;
+						cursor: pointer;
+						transition: background-color 0.3s;
+						&:hover {
+							background-color: variables.$main-color-darker;
+						}
+					}
+				}
+			}
+			&-buttons {
+				display: flex;
+				margin-top: 1em;
+				overflow-x: scroll;
+				&-likes {
+					display: flex;
+					border-radius: 20px;
+					margin: 0 0.25em;
+				}
+				&-likes-like,
+				&-likes-dislike,
+				&-share,
+				&-download,
+				&-save {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0.4em 1.2em;
+					font-size: 1.4rem;
+					border-radius: 20px;
+					border: none;
+					cursor: pointer;
+					.icon {
+						margin-right: 0.25em;
+						font-size: 1.8rem;
+					}
+				}
+				&-likes-like {
+					border-right: 1px solid variables.$border-color;
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+				&-likes-dislike {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
+				&-share,
+				&-download,
+				&-save {
+					margin: 0 0.25em;
+				}
+			}
+		}
+	}
+	&__mobileCommentOpener {
+		background-color: variables.$comment-color;
+		padding: 1em;
+		border-radius: 10px;
+		cursor: pointer;
+		&-commentCount {
+			display: flex;
+			align-items: center;
+			font-size: 1.4rem;
+			font-weight: bold;
+			margin-bottom: 0.75em;
+			span {
+				margin-left: 0.5em;
+				font-size: 1.3rem;
+				font-weight: normal;
+				color: variables.$font-color-darker;
+			}
+		}
+		&-comment {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			&-image {
+				width: 35px;
+				height: 35px;
+				background-position: center;
+				background-size: cover;
+				border-radius: 50%;
+			}
+			&-text {
+				margin: 0 0.75em;
+				width: 75%;
+				font-size: 1.2rem;
+				color: variables.$font-color-darker;
+			}
+			.icon {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.videoDetail {
+		height: calc(100vh - 71px);
+		&__mobileCommentOpener {
+			&-comment {
+				&-text {
+					width: 85%;
+					font-size: 1.3rem;
+				}
+				.icon {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.videoDetail {
+		&__about-mobile {
+			display: none;
+		}
+		&__details {
+			&-title {
+				margin: 0.75em 0 0.25em;
+			}
+			&-info-mobile {
+				display: none;
+			}
+			&-channel {
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				&-info {
+					&-image {
+						width: 45px;
+						height: 45px;
+					}
+					&-name {
+						&-subscribers {
+							margin-right: 1em;
+						}
+					}
+				}
+				&-buttons {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
