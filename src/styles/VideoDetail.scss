@@ -16,122 +16,20 @@
 			height: 100%;
 		}
 	}
-	&__comments-mobile {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		height: 0;
-		background-color: #ffffff33;
-		opacity: 0;
-		transition: opacity .3s;
-		&--active {
-			opacity: 1;
-			height: calc(100vh - 49px);
-		}
-	}
+	&__comments-mobile,
 	&__about-mobile {
-		padding-top: 1em;
-		padding-left: 0.25em;
-		padding-right: 0.25em;
-		position: absolute;
+		z-index: 1;
+		position: fixed;
 		bottom: 0;
 		width: 100%;
 		height: 0;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-		background-color: variables.$background-color;
 		opacity: 0;
 		transition: opacity 0.3s;
 		overflow: hidden;
 		&--active {
 			opacity: 1;
 			height: calc(100vh - 49px);
-			overflow: auto;
-		}
-		&-first-box {
-			background-color: variables.$background-color;
-			padding: 0.5em 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-			border-bottom: 1px solid variables.$border-color;
-			&-title {
-				font-size: 1.8rem;
-				font-weight: bold;
-				color: variables.$font-color;
-				text-transform: uppercase;
-			}
-			&-button {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 0.375em;
-				border: none;
-				background: none;
-				font-size: 2.4rem;
-				color: variables.$font-color;
-				cursor: pointer;
-			}
-		}
-		&-title {
-			font-weight: bold;
-			font-size: 1.7rem;
-			margin-top: 1.5em;
-		}
-		&-stats {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			align-items: center;
-			padding: 1.5em 0;
-			border-bottom: 1px solid variables.$border-color;
-			&-stat {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				&-value {
-					font-size: 1.4rem;
-					font-weight: bold;
-				}
-				&-label {
-					font-size: 1.2rem;
-					color: variables.$font-color-darker;
-				}
-			}
-		}
-		&-description {
-			padding: 1.5em 0;
-			font-size: 1.4rem;
-			color: variables.$font-color-darker;
-			border-bottom: 1px solid variables.$border-color;
-		}
-		&-channel {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			padding: 1.5em 0;
-			cursor: pointer;
-			&-image {
-				margin-right: 1em;
-				background-size: cover;
-				background-position: center;
-				width: 60px;
-				height: 60px;
-				border-radius: 50%;
-			}
-			&-info {
-				&-title {
-					font-weight: bold;
-					font-size: 1.5rem;
-					margin-bottom: 0.25em;
-				}
-				&-subscribers {
-					font-size: 1.3rem;
-					color: variables.$font-color-darker;
-				}
-			}
+			overflow: visible;
 		}
 	}
 	&__details {
@@ -252,6 +150,7 @@
 		background-color: variables.$comment-color;
 		padding: 1em;
 		border-radius: 10px;
+		margin-bottom: 1em;
 		cursor: pointer;
 		&-commentCount {
 			display: flex;
@@ -294,6 +193,16 @@
 @media (min-width: 576px) {
 	.videoDetail {
 		height: calc(100vh - 71px);
+		&__comments-mobile {
+			&--active {
+				height: calc(100vh - 71px);
+			}
+		}
+		&__about-mobile {
+			&--active {
+				height: calc(100vh - 71px);
+			}
+		}
 		&__mobileCommentOpener {
 			&-comment {
 				&-text {
