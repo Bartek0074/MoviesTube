@@ -13,6 +13,7 @@ import {
 	AiOutlineShareAlt,
 	AiOutlineDownload,
 	AiOutlinePlusSquare,
+	AiOutlineClose,
 } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
 import Videos from './Videos';
@@ -176,6 +177,14 @@ export default function VideoDetail() {
 				)}
 			</div>
 
+			{/* Comments dekstop */}
+			<div className='videoDetail__comments-dekstop'>
+				<Comments
+					comments={comments}
+					setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
+				/>
+			</div>
+
 			{/* Comments box opener (only mobile) */}
 			<div
 				onClick={() => setIsCommentMobileDisplayed(true)}
@@ -215,6 +224,17 @@ export default function VideoDetail() {
 						: 'videoDetail__comments-mobile'
 				}
 			>
+				<div className='videoDetail__comments-mobile-topPanel'>
+					<p className='videoDetail__comments-mobile-topPanel-title'>Comments</p>
+					<button
+						onClick={() => {
+							setIsCommentMobileDisplayed(false);
+						}}
+						className='videoDetail__comments-mobile-topPanel-button'
+					>
+						<AiOutlineClose />
+					</button>
+				</div>
 				<Comments
 					comments={comments}
 					setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
@@ -235,7 +255,8 @@ export default function VideoDetail() {
 					setIsAboutMobileDisplayed={setIsAboutMobileDisplayed}
 				/>
 			</div>
-			{/* <LoadingSpinner/> */}
+
+			{/* Videos */}
 			<div className='videoDetail__videos'>
 				{videos ? <Videos videos={videos} /> : <LoadingSpinner />}
 			</div>

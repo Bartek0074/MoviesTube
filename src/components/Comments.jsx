@@ -16,18 +16,6 @@ export default function Comments({ setIsCommentMobileDisplayed, comments }) {
 
 	return (
 		<div className='comments'>
-			<div className='comments__topPanel'>
-				<p className='comments__topPanel-title'>Comments</p>
-				<button
-					onClick={() => {
-						setIsCommentMobileDisplayed(false);
-					}}
-					className='comments__topPanel-button'
-				>
-					<AiOutlineClose />
-				</button>
-			</div>
-
 			{comments.map((comment, id) => {
 				if (id < numberOfComments) {
 					return <Comment comment={comments[id]} key={id} />;
