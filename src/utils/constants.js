@@ -11,24 +11,32 @@ import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import PetsIcon from '@mui/icons-material/Pets';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import FlightIcon from '@mui/icons-material/Flight';
 
 export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 
 export const categories = [
   { name: 'New', icon: <HomeIcon />, },
-  { name: 'Music', icon: <MusicNoteIcon /> },
-  { name: 'Education', icon: <SchoolIcon />, },
-  { name: 'Podcast', icon: <GraphicEqIcon />, },
-  { name: 'Movie', icon: <OndemandVideoIcon />, },
-  { name: 'Gaming', icon: <SportsEsportsIcon />, },
   { name: 'Live', icon: <LiveTvIcon />, },
+  { name: 'Coding', icon: <CodeIcon />, },
+  { name: 'Music', icon: <MusicNoteIcon /> },
   { name: 'Sport', icon: <FitnessCenterIcon />, },
+  { name: 'Movie', icon: <OndemandVideoIcon />, },
+  { name: 'Education', icon: <SchoolIcon />, },
+  { name: 'Travel', icon: <FlightIcon />, },
+  { name: 'Politics', icon: <BusinessCenterIcon />, },
+  { name: 'Gaming', icon: <SportsEsportsIcon />, },
+  { name: 'Podcast', icon: <GraphicEqIcon />, },
+  { name: 'Automotive', icon: <DirectionsCarIcon />, },
+  { name: 'Animals', icon: <PetsIcon />, },
   { name: 'Fashion', icon: <CheckroomIcon />, },
   { name: 'Beauty', icon: <FaceRetouchingNaturalIcon />, },
   { name: 'Comedy', icon: <TheaterComedyIcon />, },
   { name: 'Gym', icon: <FitnessCenterIcon />, },
   { name: 'Crypto', icon: <DeveloperModeIcon />, },
-  { name: 'Coding', icon: <CodeIcon />, },
 ];
 
 export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
