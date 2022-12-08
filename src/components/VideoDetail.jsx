@@ -84,8 +84,6 @@ export default function VideoDetail() {
 
 	// console.log(comments[0]?.snippet?.topLevelComment?.snippet?.textDisplay);
 	// console.log(
-	// 	comments[0]?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl
-	// );
 
 	return (
 		<div
@@ -96,195 +94,201 @@ export default function VideoDetail() {
 					: { overflow: 'scroll' }
 			}
 		>
-			{/* Video player */}
-			<div className='videoDetail__video-wrapper'>
-				<ReactPlayer
-					className='videoDetail__video'
-					url={`https://www.youtube.com/watch?v=${id}`}
-					width='100%'
-					height='100%'
-					controls
-				/>
-			</div>
+			<div className='videoDetailWrapper'>
+				{/* Video player */}
+				<div className='videoDetail__video-wrapper'>
+					<ReactPlayer
+						className='videoDetail__video'
+						url={`https://www.youtube.com/watch?v=${id}`}
+						width='100%'
+						height='100%'
+						controls
+					/>
+				</div>
 
-			{/* Video details */}
-			<div className='videoDetail__details'>
-				{videoDetail && channelDetail ? (
-					<>
-						<h2 className='videoDetail__details-title'>
-							{videoDetail?.snippet?.title}
-						</h2>
+				{/* Video details */}
+				<div className='videoDetail__details'>
+					{videoDetail && channelDetail ? (
+						<>
+							<h2 className='videoDetail__details-title'>
+								{videoDetail?.snippet?.title}
+							</h2>
 
-						{/* Mobile about opener */}
-						<div
-							onClick={() => setIsAboutMobileDisplayed(true)}
-							className='videoDetail__details-info-mobile'
-						>
-							<p className='videoDetail__details-info-mobile-views'>
-								{numFormatter(videoDetail?.statistics?.viewCount)} views
-							</p>
-							<p className='videoDetail__details-info-mobile-date'>
-								{calcDate(new Date(videoDetail?.snippet?.publishedAt))}
-							</p>
-							<p className='videoDetail__details-info-mobile-more'>
-								...show more
-							</p>
-						</div>
+							{/* Mobile about opener */}
+							<div
+								onClick={() => setIsAboutMobileDisplayed(true)}
+								className='videoDetail__details-info-mobile'
+							>
+								<p className='videoDetail__details-info-mobile-views'>
+									{numFormatter(videoDetail?.statistics?.viewCount)} views
+								</p>
+								<p className='videoDetail__details-info-mobile-date'>
+									{calcDate(new Date(videoDetail?.snippet?.publishedAt))}
+								</p>
+								<p className='videoDetail__details-info-mobile-more'>
+									...show more
+								</p>
+							</div>
 
-						{/* Channel details, buttons etc. (mobile + desktop) */}
-						<div className='videoDetail__details-channel'>
-							<div className='videoDetail__details-channel-info'>
+							{/* Channel details, buttons etc. (mobile + desktop) */}
+							<div className='videoDetail__details-channel'>
+								<div className='videoDetail__details-channel-info'>
+									<div
+										onClick={navigateToChannel}
+										className='videoDetail__details-channel-info-image'
+										style={{
+											backgroundImage: `url(${channelDetail?.snippet?.thumbnails?.default?.url})`,
+										}}
+									></div>
+									<div
+										onClick={navigateToChannel}
+										className='videoDetail__details-channel-info-name'
+									>
+										<p className='videoDetail__details-channel-info-name-title'>
+											{channelDetail?.snippet?.title}
+										</p>
+										<p className='videoDetail__details-channel-info-name-subscribers'>
+											{numFormatter(channelDetail?.statistics?.subscriberCount)}{' '}
+										</p>
+									</div>
+									<button className='videoDetail__details-channel-info-name-subscribe-button'>
+										Subscribe
+									</button>
+								</div>
+								<div className='videoDetail__details-channel-buttons'>
+									<div className='videoDetail__details-channel-buttons-likes'>
+										<button className='videoDetail__details-channel-buttons-likes-like'>
+											<AiOutlineLike className='icon' />
+											{numFormatter(videoDetail?.statistics?.likeCount)}
+										</button>
+										<button className='videoDetail__details-channel-buttons-likes-dislike'>
+											<AiOutlineDislike />
+										</button>
+									</div>
+									<button className='videoDetail__details-channel-buttons-share'>
+										<AiOutlineShareAlt className='icon' /> Share
+									</button>
+									<button className='videoDetail__details-channel-buttons-download'>
+										<AiOutlineDownload className='icon' /> Download
+									</button>
+									<button className='videoDetail__details-channel-buttons-save'>
+										<AiOutlinePlusSquare className='icon' /> Save
+									</button>
+								</div>
+							</div>
+						</>
+					) : (
+						<LoadingSpinner />
+					)}
+				</div>
+				<div className='videoDetail__about-desktop'>
+					{videoDetail ? (
+						<VideoDetailDesktopAbout videoDetail={videoDetail} />
+					) : (
+						<LoadingSpinner />
+					)}
+				</div>
+
+				{/* Comments dekstop */}
+				<div className='videoDetail__comments-dekstop'>
+					{comments[0] ? (
+						<Comments
+							comments={comments}
+							setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
+						/>
+					) : (
+						<LoadingSpinner />
+					)}
+				</div>
+
+				{/* Comments box opener (only mobile) */}
+				<div
+					onClick={() => setIsCommentMobileDisplayed(true)}
+					className='videoDetail__mobileCommentOpener'
+				>
+					{comments[0] ? (
+						<>
+							<p className='videoDetail__mobileCommentOpener-commentCount'>
+								Comments <span>{videoDetail?.statistics?.commentCount}</span>
+							</p>
+							<div className='videoDetail__mobileCommentOpener-comment'>
 								<div
-									onClick={navigateToChannel}
-									className='videoDetail__details-channel-info-image'
+									className='videoDetail__mobileCommentOpener-comment-image'
 									style={{
-										backgroundImage: `url(${channelDetail?.snippet?.thumbnails?.default?.url})`,
+										backgroundImage: `url(${comments[0]?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl})`,
 									}}
 								></div>
-								<div
-									onClick={navigateToChannel}
-									className='videoDetail__details-channel-info-name'
-								>
-									<p className='videoDetail__details-channel-info-name-title'>
-										{channelDetail?.snippet?.title}
-									</p>
-									<p className='videoDetail__details-channel-info-name-subscribers'>
-										{numFormatter(channelDetail?.statistics?.subscriberCount)}{' '}
-									</p>
-								</div>
-								<button className='videoDetail__details-channel-info-name-subscribe-button'>
-									Subscribe
-								</button>
+								<p className='videoDetail__mobileCommentOpener-comment-text'>
+									{comments[0]?.snippet?.topLevelComment?.snippet?.textDisplay.substring(
+										0,
+										120
+									) + '...'}
+								</p>
+								<IoIosArrowDown className='icon' />
 							</div>
-							<div className='videoDetail__details-channel-buttons'>
-								<div className='videoDetail__details-channel-buttons-likes'>
-									<button className='videoDetail__details-channel-buttons-likes-like'>
-										<AiOutlineLike className='icon' />
-										{numFormatter(videoDetail?.statistics?.likeCount)}
-									</button>
-									<button className='videoDetail__details-channel-buttons-likes-dislike'>
-										<AiOutlineDislike />
-									</button>
-								</div>
-								<button className='videoDetail__details-channel-buttons-share'>
-									<AiOutlineShareAlt className='icon' /> Share
-								</button>
-								<button className='videoDetail__details-channel-buttons-download'>
-									<AiOutlineDownload className='icon' /> Download
-								</button>
-								<button className='videoDetail__details-channel-buttons-save'>
-									<AiOutlinePlusSquare className='icon' /> Save
-								</button>
-							</div>
-						</div>
-					</>
-				) : (
-					<LoadingSpinner />
-				)}
-			</div>
-			<div className='videoDetail__about-desktop'>
-				{videoDetail ? <VideoDetailDesktopAbout videoDetail={videoDetail}/> : <LoadingSpinner/>}
-			</div>
+						</>
+					) : (
+						<LoadingSpinner />
+					)}
+				</div>
 
-			{/* Comments dekstop */}
-			<div className='videoDetail__comments-dekstop'>
-				{comments[0] ? (
+				{/* Comments mobile box */}
+				<div
+					className={
+						isCommentMobileDisplayed
+							? 'videoDetail__comments-mobile videoDetail__comments-mobile--active'
+							: 'videoDetail__comments-mobile'
+					}
+				>
+					<div className='videoDetail__comments-mobile-topPanel'>
+						<p className='videoDetail__comments-mobile-topPanel-title'>
+							Comments
+						</p>
+						<button
+							onClick={() => {
+								setIsCommentMobileDisplayed(false);
+							}}
+							className='videoDetail__comments-mobile-topPanel-button'
+						>
+							<AiOutlineClose />
+						</button>
+					</div>
 					<Comments
 						comments={comments}
 						setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
 					/>
-				) : (
-					<LoadingSpinner />
-				)}
-			</div>
-
-			{/* Comments box opener (only mobile) */}
-			<div
-				onClick={() => setIsCommentMobileDisplayed(true)}
-				className='videoDetail__mobileCommentOpener'
-			>
-				{comments[0] ? (
-					<>
-						<p className='videoDetail__mobileCommentOpener-commentCount'>
-							Comments <span>{videoDetail?.statistics?.commentCount}</span>
-						</p>
-						<div className='videoDetail__mobileCommentOpener-comment'>
-							<div
-								className='videoDetail__mobileCommentOpener-comment-image'
-								style={{
-									backgroundImage: `url(${comments[0]?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl})`,
-								}}
-							></div>
-							<p className='videoDetail__mobileCommentOpener-comment-text'>
-								{comments[0]?.snippet?.topLevelComment?.snippet?.textDisplay.substring(
-									0,
-									120
-								) + '...'}
-							</p>
-							<IoIosArrowDown className='icon' />
-						</div>
-					</>
-				) : (
-					<LoadingSpinner />
-				)}
-			</div>
-
-			{/* Comments mobile box */}
-			<div
-				className={
-					isCommentMobileDisplayed
-						? 'videoDetail__comments-mobile videoDetail__comments-mobile--active'
-						: 'videoDetail__comments-mobile'
-				}
-			>
-				<div className='videoDetail__comments-mobile-topPanel'>
-					<p className='videoDetail__comments-mobile-topPanel-title'>
-						Comments
-					</p>
-					<button
-						onClick={() => {
-							setIsCommentMobileDisplayed(false);
-						}}
-						className='videoDetail__comments-mobile-topPanel-button'
-					>
-						<AiOutlineClose />
-					</button>
 				</div>
-				<Comments
-					comments={comments}
-					setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
-				/>
-			</div>
 
-			{/* About video mobile box */}
-			<div
-				className={
-					isAboutMobileDisplayed
-						? 'videoDetail__about-mobile videoDetail__about-mobile--active'
-						: 'videoDetail__about-mobile'
-				}
-			>
-				<div className='videoDetail__about-mobile-topPanel'>
-					<p className='videoDetail__about-mobile-topPanel-title'>About</p>
-					<button
-						onClick={() => {
-							setIsAboutMobileDisplayed(false);
-						}}
-						className='videoDetail__about-mobile-topPanel-button'
-					>
-						<AiOutlineClose />
-					</button>
+				{/* About video mobile box */}
+				<div
+					className={
+						isAboutMobileDisplayed
+							? 'videoDetail__about-mobile videoDetail__about-mobile--active'
+							: 'videoDetail__about-mobile'
+					}
+				>
+					<div className='videoDetail__about-mobile-topPanel'>
+						<p className='videoDetail__about-mobile-topPanel-title'>About</p>
+						<button
+							onClick={() => {
+								setIsAboutMobileDisplayed(false);
+							}}
+							className='videoDetail__about-mobile-topPanel-button'
+						>
+							<AiOutlineClose />
+						</button>
+					</div>
+					<VideoDetailMobileAbout
+						videoDetail={videoDetail}
+						channelDetail={channelDetail}
+						setIsAboutMobileDisplayed={setIsAboutMobileDisplayed}
+					/>
 				</div>
-				<VideoDetailMobileAbout
-					videoDetail={videoDetail}
-					channelDetail={channelDetail}
-					setIsAboutMobileDisplayed={setIsAboutMobileDisplayed}
-				/>
-			</div>
 
-			{/* Videos */}
-			<div className='videoDetail__videos'>
-				{videos ? <Videos videos={videos} /> : <LoadingSpinner />}
+				{/* Videos */}
+				<div className='videoDetail__videos'>
+					{videos ? <Videos videos={videos} /> : <LoadingSpinner />}
+				</div>
 			</div>
 		</div>
 	);

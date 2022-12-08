@@ -3,11 +3,13 @@
 .videoDetail {
 	position: relative;
 	height: calc(100vh - 49px);
-	width: 100%;
 	padding: 0 0.5em;
-	max-width: 1400px;
-	margin: 0 auto;
 	overflow: scroll;
+	&Wrapper {
+		width: 100%;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
 	&__video-wrapper {
 		margin-top: 0.5em;
 		position: relative;
@@ -263,9 +265,10 @@
 @media (min-width: 768px) {
 	.videoDetail {
 		height: calc(100vh - 74px);
-		display: grid;
-		grid-template-columns: 65% 35%;
-		// column-gap: .5em;
+		&Wrapper {
+			display: grid;
+			grid-template-columns: 65% 35%;
+		}
 		&__mobileCommentOpener,
 		&__comments-mobile,
 		&__about-mobile {
@@ -277,7 +280,7 @@
 		&__about-desktop {
 			display: block;
 			grid-column: 1/2;
-			margin-bottom: .5em;
+			margin-bottom: 0.5em;
 		}
 		&__details {
 			grid-column: 1/2;
@@ -309,7 +312,9 @@
 
 @media (min-width: 992px) {
 	.videoDetail {
-		grid-template-columns: 70% 30%;
+		&Wrapper {
+			grid-template-columns: 70% 30%;
+		}
 		&__videos {
 			margin-left: 0.5em;
 		}
@@ -318,7 +323,9 @@
 
 @media (min-width: 1200px) {
 	.videoDetail {
-		grid-template-columns: 1fr 300px;
+		&Wrapper {
+			grid-template-columns: 1fr 300px;
+		}
 		&__details {
 			&-channel {
 				flex-direction: row;
