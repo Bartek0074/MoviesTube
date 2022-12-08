@@ -1,9 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { numFormatter } from '../utils/numFormatter';
-import {
-	AiOutlineClose,
-} from 'react-icons/ai';
 import '../styles/VideoDetailMobileAbout.scss';
 
 export default function VideoDetailMobileAbout({ channelDetail, videoDetail, setIsAboutMobileDisplayed }) {
@@ -27,17 +24,6 @@ export default function VideoDetailMobileAbout({ channelDetail, videoDetail, set
 	};
 	return (
 		<div className='videoDetailMobileAbout'>
-			<div className='videoDetailMobileAbout__first-box'>
-				<p className='videoDetailMobileAbout__first-box-title'>About</p>
-				<button
-					onClick={() => {
-						setIsAboutMobileDisplayed(false);
-					}}
-					className='videoDetailMobileAbout__first-box-button'
-				>
-					<AiOutlineClose />
-				</button>
-			</div>
 			<p className='videoDetailMobileAbout__title'>
 				{videoDetail?.snippet?.title}
 			</p>

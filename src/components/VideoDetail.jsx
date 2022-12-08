@@ -19,6 +19,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import Videos from './Videos';
 import VideoDetailMobileAbout from './VideoDetailMobileAbout';
 import LoadingSpinner from './LoadingSpinner';
+import VideoDetailDesktopAbout from './VideoDetailDesktopAbout';
 
 export default function VideoDetail() {
 	const { id } = useParams();
@@ -38,6 +39,11 @@ export default function VideoDetail() {
 		useState(false);
 
 	useEffect(() => {
+		setVideoDetail(null);
+		setChannelDetail(null);
+		setComments([]);
+		setVideos(null);
+
 		const fetchData = async () => {
 			const videoDetailData = await fetchFromAPI(
 				`videos?part=snippet&id=${id}`
@@ -176,13 +182,20 @@ export default function VideoDetail() {
 					<LoadingSpinner />
 				)}
 			</div>
+			<div className='videoDetail__about-desktop'>
+				{videoDetail ? <VideoDetailDesktopAbout videoDetail={videoDetail}/> : <LoadingSpinner/>}
+			</div>
 
 			{/* Comments dekstop */}
 			<div className='videoDetail__comments-dekstop'>
-				<Comments
-					comments={comments}
-					setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
-				/>
+				{comments[0] ? (
+					<Comments
+						comments={comments}
+						setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
+					/>
+				) : (
+					<LoadingSpinner />
+				)}
 			</div>
 
 			{/* Comments box opener (only mobile) */}
@@ -225,7 +238,9 @@ export default function VideoDetail() {
 				}
 			>
 				<div className='videoDetail__comments-mobile-topPanel'>
-					<p className='videoDetail__comments-mobile-topPanel-title'>Comments</p>
+					<p className='videoDetail__comments-mobile-topPanel-title'>
+						Comments
+					</p>
 					<button
 						onClick={() => {
 							setIsCommentMobileDisplayed(false);
@@ -249,6 +264,17 @@ export default function VideoDetail() {
 						: 'videoDetail__about-mobile'
 				}
 			>
+				<div className='videoDetail__about-mobile-topPanel'>
+					<p className='videoDetail__about-mobile-topPanel-title'>About</p>
+					<button
+						onClick={() => {
+							setIsAboutMobileDisplayed(false);
+						}}
+						className='videoDetail__about-mobile-topPanel-button'
+					>
+						<AiOutlineClose />
+					</button>
+				</div>
 				<VideoDetailMobileAbout
 					videoDetail={videoDetail}
 					channelDetail={channelDetail}

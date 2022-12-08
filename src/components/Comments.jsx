@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Comment from './Comment';
 import '../styles/Comments.scss';
-import { AiOutlineClose } from 'react-icons/ai';
 
-export default function Comments({ setIsCommentMobileDisplayed, comments }) {
+export default function Comments({ comments, navigateToChannel }) {
 	const [numberOfComments, setNumberOfComments] = useState(10);
 
 	const showMoreComments = () => {

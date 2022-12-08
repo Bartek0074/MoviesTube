@@ -27,6 +27,11 @@
 			&-channelName {
 				color: variables.$font-color-darker;
 				font-size: 1.3rem;
+				cursor: pointer;
+				transition: color .3s;
+				&:hover{
+					color: variables.$font-color;
+				}
 			}
             .icon{
                 font-size: 1.2.2rem;
