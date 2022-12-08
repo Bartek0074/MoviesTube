@@ -10,11 +10,19 @@
 		font-size: 1.6rem;
 		border: none;
 		border-radius: 25px;
-		background-color: variables.$font-color-darker;
+		background-color: variables.$light-gray;
 		cursor: pointer;
 		transition: background-color 0.3s;
 		&:hover {
-			background-color: variables.$font-color;
+			background-color: variables.$gray;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.comments {
+		&__button {
+			width: 50%;
 		}
 	}
 }

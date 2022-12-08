@@ -1,14 +1,14 @@
 @use './variables';
 
 .videoDetailDesktopAbout {
-	background-color: #333;
+	background-color: variables.$light-gray;
 	border-radius: 10px;
 	padding: 1em;
 	&--open {
 		cursor: pointer;
 		transition: background-color 0.3s;
 		&:hover {
-			background-color: #444;
+			background-color: variables.$gray;
 		}
 	}
 	&__stats {

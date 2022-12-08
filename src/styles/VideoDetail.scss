@@ -39,13 +39,12 @@
 			position: sticky;
 			top: 0;
 			background-color: variables.$background-color;
-			padding: 0.5em 0.5em;
-			padding-right: 0.75em;
+			padding: 0.5em 0.75em;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			border-bottom: 1px solid variables.$border-color;
+			border-bottom: 1px solid variables.$dark-gray;
 			&-title {
 				font-size: 1.8rem;
 				font-weight: bold;
@@ -131,11 +130,11 @@
 						border-radius: 20px;
 						font-size: 1.6rem;
 						border: none;
-						background-color: variables.$main-color;
+						background-color: variables.$main-color-light;
 						cursor: pointer;
 						transition: background-color 0.3s;
 						&:hover {
-							background-color: variables.$main-color-darker;
+							background-color: variables.$main-color;
 						}
 					}
 				}
@@ -161,14 +160,19 @@
 					font-size: 1.4rem;
 					border-radius: 20px;
 					border: none;
+					background-color: variables.$light-gray;
 					cursor: pointer;
+					transition: background-color 0.3s;
+					&:hover {
+						background-color: variables.$gray;
+					}
 					.icon {
 						margin-right: 0.25em;
 						font-size: 1.8rem;
 					}
 				}
 				&-likes-like {
-					border-right: 1px solid variables.$border-color;
+					border-right: 1px solid variables.$dark-gray;
 					border-top-right-radius: 0;
 					border-bottom-right-radius: 0;
 				}
@@ -194,11 +198,15 @@
 	}
 
 	&__mobileCommentOpener {
-		background-color: variables.$comment-color;
+		background-color: variables.$light-gray;
 		padding: 1em;
 		border-radius: 10px;
 		margin-bottom: 1em;
 		cursor: pointer;
+		transition: background-color 0.3s;
+		&:hover {
+			background-color: variables.$gray;
+		}
 		&-commentCount {
 			display: flex;
 			align-items: center;

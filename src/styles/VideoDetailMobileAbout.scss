@@ -14,7 +14,7 @@
 		justify-content: space-around;
 		align-items: center;
 		padding: 1.5em 0;
-		border-bottom: 1px solid variables.$border-color;
+		border-bottom: 1px solid variables.$dark-gray;
 		&-stat {
 			display: flex;
 			flex-direction: column;
@@ -34,7 +34,7 @@
 		padding: 1.5em 0;
 		font-size: 1.4rem;
 		color: variables.$font-color-darker;
-		border-bottom: 1px solid variables.$border-color;
+		border-bottom: 1px solid variables.$dark-gray;
 	}
 	&__channel {
 		display: flex;

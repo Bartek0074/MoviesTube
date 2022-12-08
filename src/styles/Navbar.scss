@@ -1,35 +1,36 @@
 @use 'variables';
 
 .navbar {
-	position: sticky;
-	top: 0;
-	z-index: 1;
 	display: flex;
 	flex-direction: row;
+	position: sticky;
+	z-index: 1;
+	top: 0;
 	width: 100%;
-	padding: 0.5em;
+	margin: 0 auto;
+	background-color: variables.$background-color;
 	max-width: 1400px;
-	margin: 0 auto;	background-color: variables.$background-color;
+	padding: 0.5em;
 	&__homeBtn {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 0.25em;
 		color: variables.$main-color;
-		border: none;
-		background: none;
-		letter-spacing: -0.5px;
-		cursor: pointer;
 		font-size: 1.8rem;
 		font-weight: bold;
+		letter-spacing: -0.5px;
+		border: none;
+		background: none;
+		cursor: pointer;
 		span:first-child {
 			color: variables.$font-color;
 		}
 		&-icon {
-			color: #fff;
-			font-size: 2.4rem;
 			margin-right: -2px;
 			margin-left: -1px;
+			color: variables.$font-color;
+			font-size: 2.4rem;
 			transition: transform 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955),
 				color 0.9s;
 		}
@@ -50,35 +51,36 @@
 			padding-left: 0.4em;
 			width: 70%;
 			height: 28px;
-			background-color: #121212;
+			background-color: transparent;
 			border: 1px solid variables.$border-color;
-			color: variables.$font-color;
 			border-top-left-radius: 15px;
 			border-bottom-left-radius: 15px;
+			color: variables.$font-color;
 			font-size: 1.6rem;
 			transition: border-color 0.3s;
 			&:focus {
 				outline: none;
-				border-color: variables.$main-color-darker;
+				border-color: variables.$main-color;
 			}
 		}
 		button {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: 0.5em 1em;
 			height: 28px;
-			background-color: #212121;
+			padding: 0.5em 1em;
+			background-color: transparent;
 			border: 1px solid variables.$border-color;
-			color: variables.$font-color;
 			border-left: none;
 			border-top-right-radius: 15px;
-			font-size: 1.4rem;
 			border-bottom-right-radius: 15px;
+			color: variables.$font-color;
+			font-size: 1.4rem;
 			cursor: pointer;
-			transition: color 0.3s;
+			transition: background-color 0.3s, color 0.3s;
 			&:hover {
 				color: variables.$main-color;
+				border-color: variables.$main-color;
 			}
 		}
 	}
@@ -95,10 +97,10 @@
 		}
 		form {
 			input {
-				padding-left: 0.5em;
-				height: 32px;
-				font-size: 1.8rem;
 				width: 100%;
+				height: 32px;
+				padding-left: 0.5em;
+				font-size: 1.8rem;
 			}
 			button {
 				height: 32px;
@@ -118,8 +120,8 @@
 		}
 		form {
 			input {
-				padding-left: 0.75em;
 				height: 36px;
+				padding-left: 0.75em;
 				font-size: 2rem;
 			}
 			button {
