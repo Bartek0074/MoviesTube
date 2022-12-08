@@ -10,17 +10,15 @@ import {
 
 function App() {
 	return (
-		<div className='wrapper'>
-			<BrowserRouter>
-				<Navbar />
-				<Routes>
-					<Route path='/' exact element={<Feed />} />
-					<Route path='/video/:id' element={<VideoDetail />} />
-					<Route path='/channel/:id' element={<ChannelDetail />} />
-					<Route path='/search/:searchTerm' element={<SearchFeed />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
+		<BrowserRouter>
+			<Navbar />
+			<Routes>
+				<Route path='/' exact element={<Feed />} />
+				<Route path='/video/:id' element={<VideoDetail />} />
+				<Route path='/channel/:id' element={<ChannelDetail />} />
+				<Route path='/search/:searchTerm' element={<SearchFeed />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

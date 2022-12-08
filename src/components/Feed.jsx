@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Sidebar, Videos } from './index';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
+import LoadingSpinner from './LoadingSpinner';
 import '../styles/Feed.scss';
 
 export default function Feed() {
@@ -25,7 +26,7 @@ export default function Feed() {
 				<p className='feed__videos-title'>
 					<span>{selectedCategory}</span> videos
 				</p>
-				<Videos videos={videos} />
+				{videos[0] ? <Videos videos={videos} /> : <LoadingSpinner />}
 			</div>
 		</div>
 	);

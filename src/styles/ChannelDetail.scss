@@ -1,6 +1,10 @@
 @use 'variables';
 
 .channelDetail {
+	width: 100%;
+	padding: 0 .5em;
+	max-width: 1400px;
+	margin: 0 auto;
 	&__bannerImage {
 		position: relative;
 		background-position: center;
@@ -203,6 +207,9 @@
 					}
 				}
 				&-info {
+					&-title{
+						text-align-last: left;
+					}
 					&-stats {
 						flex-direction: column;
 						align-items: start;

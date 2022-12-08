@@ -42,3 +42,10 @@
         height: 40px;
     }
 }
+
+@media (min-width: 992px) {
+    .loadingSpinner .loadingSpinner__icon {
+        width: 45px;
+        height: 45px;
+    }
+}

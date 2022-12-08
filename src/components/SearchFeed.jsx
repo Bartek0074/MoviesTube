@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Videos } from './index';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import '../styles/SearchFeed.scss'
+import '../styles/SearchFeed.scss';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function SearchFeed() {
 	const { searchTerm } = useParams();
@@ -20,7 +21,7 @@ export default function SearchFeed() {
 			<p className='searchFeed__title'>
 				Search results for <span>{searchTerm}</span> videos
 			</p>
-			<Videos videos={videos} />
+			{videos[0] ? <Videos videos={videos} /> : <LoadingSpinner />}
 		</div>
 	);
 }

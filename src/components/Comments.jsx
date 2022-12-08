@@ -34,13 +34,7 @@ export default function Comments({ setIsCommentMobileDisplayed, comments }) {
 				} else return null;
 			})}
 
-			{/* {commentArray.map((comment, id) => {
-				if (id < numberOfComments) {
-					return <Comment key={id}/>;
-				} else return null;
-			})} */}
-
-			{numberOfComments !== comments.length ? (
+			{numberOfComments < comments.length ? (
 				<button className='comments__button' onClick={showMoreComments}>
 					Show more
 				</button>

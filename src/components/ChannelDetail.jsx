@@ -6,6 +6,7 @@ import { numFormatter } from '../utils/numFormatter.js';
 import { BsDot } from 'react-icons/bs';
 import { BiGlobe, BiInfoCircle, BiStats } from 'react-icons/bi';
 import '../styles/ChannelDetail.scss';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function ChannelDetail() {
 	const { id } = useParams();
@@ -120,8 +121,11 @@ export default function ChannelDetail() {
 					</div>
 				</div>
 			</div>
-			<div className='channelDetail__videos' style={{display: activeModul === 'videos' ? 'block' : 'none' }}>
-				<Videos videos={videos}/>
+			<div
+				className='channelDetail__videos'
+				style={{ display: activeModul === 'videos' ? 'block' : 'none' }}
+			>
+				{videos[0] ? <Videos videos={videos} /> : <LoadingSpinner />}
 			</div>
 		</div>
 	);
