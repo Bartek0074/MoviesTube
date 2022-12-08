@@ -19,7 +19,8 @@ export default function ChannelDetail() {
 			setChannelDetail(data.items[0])
 		);
 		fetchFromAPI(`search?part=snippet&order=date&channelId=${id}`).then(
-			(data) => setVideos(data.items)
+			(data) => {
+				setVideos(data.items)}
 		);
 	}, [id]);
 
@@ -27,12 +28,14 @@ export default function ChannelDetail() {
 	console.log(videos);
 	return (
 		<div className='channelDetail'>
-			<div
-				className='channelDetail__bannerImage'
-				style={{
-					backgroundImage: `url(${channelDetail?.brandingSettings?.image?.bannerExternalUrl})`,
-				}}
-			></div>
+			{channelDetail?.brandingSettings?.image?.bannerExternalUrl ? (
+				<div
+					className='channelDetail__bannerImage'
+					style={{
+						backgroundImage: `url(${channelDetail?.brandingSettings?.image?.bannerExternalUrl})`,
+					}}
+				></div>
+			) : null}
 			<div className='channelDetail__details'>
 				<div className='channelDetail__details-first-box'>
 					<div className='channelDetail__details-first-box-thumbnail'>
@@ -109,7 +112,12 @@ export default function ChannelDetail() {
 					<p className='channelDetail__about-info-title'>Details</p>
 					<div className='channelDetail__about-info-country'>
 						<BiGlobe className='icon' />
-						<p>Location: {channelDetail?.snippet?.country}</p>
+						<p>
+							Location:{' '}
+							{channelDetail?.snippet?.country
+								? channelDetail?.snippet?.country
+								: '-'}
+						</p>
 					</div>
 					<div className='channelDetail__about-info-joined'>
 						<BiInfoCircle className='icon' />
@@ -125,7 +133,7 @@ export default function ChannelDetail() {
 				className='channelDetail__videos'
 				style={{ display: activeModul === 'videos' ? 'block' : 'none' }}
 			>
-				{videos[0] ? <Videos videos={videos} /> : <LoadingSpinner />}
+				{videos[0] ? <Videos videos={videos} /> : <p className='channelDetail__videos-info'>This channel doesn't have any content</p>}
 			</div>
 		</div>
 	);

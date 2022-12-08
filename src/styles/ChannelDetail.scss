@@ -145,6 +145,11 @@
 			}
 		}
 	}
+	&__videos{
+		&-info{
+			text-align: center;
+		}
+	}
 }
 @media (min-width: 576px) {
 	.channelDetail {
