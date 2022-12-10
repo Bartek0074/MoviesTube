@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
+import ReactPlayer from 'react-player';
+
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import '../styles/VideoDetail.scss';
 import { numFormatter } from '../utils/numFormatter';
 import { calcDate } from '../utils/calcDate';
-import Comments from './Comments';
+
+import VideoDetailDesktopAbout from './VideoDetailDesktopAbout';
+import {
+	Comments,
+	Videos,
+	LoadingSpinner,
+	VideoDetailMobileAbout,
+} from './index';
+
 import {
 	AiOutlineLike,
 	AiOutlineDislike,
@@ -16,10 +25,8 @@ import {
 	AiOutlineClose,
 } from 'react-icons/ai';
 import { IoIosArrowDown } from 'react-icons/io';
-import Videos from './Videos';
-import VideoDetailMobileAbout from './VideoDetailMobileAbout';
-import LoadingSpinner from './LoadingSpinner';
-import VideoDetailDesktopAbout from './VideoDetailDesktopAbout';
+
+import '../styles/VideoDetail.scss';
 
 export default function VideoDetail() {
 	const { id } = useParams();
@@ -82,23 +89,20 @@ export default function VideoDetail() {
 		fetchData();
 	}, [id]);
 
-	// console.log(comments[0]?.snippet?.topLevelComment?.snippet?.textDisplay);
-	// console.log(
-
 	return (
 		<div
-			className='videoDetail'
+			className='video-detail'
 			style={
 				isCommentMobileDisplayed || isAboutMobileDisplayed
 					? { overflow: 'hidden' }
 					: { overflow: 'scroll' }
 			}
 		>
-			<div className='videoDetailWrapper'>
+			<div className='video-detail-wrapper'>
 				{/* Video player */}
-				<div className='videoDetail__video-wrapper'>
+				<div className='video-detail__video-box'>
 					<ReactPlayer
-						className='videoDetail__video'
+						className='video-detail__video'
 						url={`https://www.youtube.com/watch?v=${id}`}
 						width='100%'
 						height='100%'
@@ -107,71 +111,69 @@ export default function VideoDetail() {
 				</div>
 
 				{/* Video details */}
-				<div className='videoDetail__details'>
+				<div className='video-detail__details'>
 					{videoDetail && channelDetail ? (
 						<>
-							<h2 className='videoDetail__details-title'>
+							<h2 className='video-detail__title'>
 								{videoDetail?.snippet?.title}
 							</h2>
 
 							{/* Mobile about opener */}
 							<div
 								onClick={() => setIsAboutMobileDisplayed(true)}
-								className='videoDetail__details-info-mobile'
+								className='video-detail__mobile-about-opener'
 							>
-								<p className='videoDetail__details-info-mobile-views'>
+								<p className='video-detail__views'>
 									{numFormatter(videoDetail?.statistics?.viewCount)} views
 								</p>
-								<p className='videoDetail__details-info-mobile-date'>
+								<p className='video-detail__date'>
 									{calcDate(new Date(videoDetail?.snippet?.publishedAt))}
 								</p>
-								<p className='videoDetail__details-info-mobile-more'>
-									...show more
-								</p>
+								<p className='video-detail__show-more'>...show more</p>
 							</div>
 
 							{/* Channel details, buttons etc. (mobile + desktop) */}
-							<div className='videoDetail__details-channel'>
-								<div className='videoDetail__details-channel-info'>
+							<div className='video-detail__channel'>
+								<div className='video-detail__channel-info'>
 									<div
 										onClick={navigateToChannel}
-										className='videoDetail__details-channel-info-image'
+										className='video-detail__channel-image'
 										style={{
 											backgroundImage: `url(${channelDetail?.snippet?.thumbnails?.default?.url})`,
 										}}
 									></div>
 									<div
 										onClick={navigateToChannel}
-										className='videoDetail__details-channel-info-name'
+										className='video-detail__channel-name'
 									>
-										<p className='videoDetail__details-channel-info-name-title'>
+										<p className='video-detail__channel-title'>
 											{channelDetail?.snippet?.title}
 										</p>
-										<p className='videoDetail__details-channel-info-name-subscribers'>
+										<p className='video-detail__channel-subs'>
 											{numFormatter(channelDetail?.statistics?.subscriberCount)}{' '}
 										</p>
 									</div>
-									<button className='videoDetail__details-channel-info-name-subscribe-button'>
+									<button className='video-detail__subscribe-btn'>
 										Subscribe
 									</button>
 								</div>
-								<div className='videoDetail__details-channel-buttons'>
-									<div className='videoDetail__details-channel-buttons-likes'>
-										<button className='videoDetail__details-channel-buttons-likes-like'>
+								<div className='video-detail__buttons'>
+									<div className='video-detail__likes'>
+										<button className='video-detail__like-btn'>
 											<AiOutlineLike className='icon' />
 											{numFormatter(videoDetail?.statistics?.likeCount)}
 										</button>
-										<button className='videoDetail__details-channel-buttons-likes-dislike'>
+										<button className='video-detail__dislike-btn'>
 											<AiOutlineDislike />
 										</button>
 									</div>
-									<button className='videoDetail__details-channel-buttons-share'>
+									<button className='video-detail__share-btn'>
 										<AiOutlineShareAlt className='icon' /> Share
 									</button>
-									<button className='videoDetail__details-channel-buttons-download'>
+									<button className='video-detail__download-btn'>
 										<AiOutlineDownload className='icon' /> Download
 									</button>
-									<button className='videoDetail__details-channel-buttons-save'>
+									<button className='video-detail__save-btn'>
 										<AiOutlinePlusSquare className='icon' /> Save
 									</button>
 								</div>
@@ -181,7 +183,7 @@ export default function VideoDetail() {
 						<LoadingSpinner />
 					)}
 				</div>
-				<div className='videoDetail__about-desktop'>
+				<div className='video-detail__desktop-about'>
 					{videoDetail ? (
 						<VideoDetailDesktopAbout videoDetail={videoDetail} />
 					) : (
@@ -190,7 +192,7 @@ export default function VideoDetail() {
 				</div>
 
 				{/* Comments dekstop */}
-				<div className='videoDetail__comments-dekstop'>
+				<div className='video-detail__desktop-comments'>
 					{comments[0] ? (
 						<Comments
 							comments={comments}
@@ -204,21 +206,21 @@ export default function VideoDetail() {
 				{/* Comments box opener (only mobile) */}
 				<div
 					onClick={() => setIsCommentMobileDisplayed(true)}
-					className='videoDetail__mobileCommentOpener'
+					className='video-detail__mobile-comments-opener'
 				>
 					{comments[0] ? (
 						<>
-							<p className='videoDetail__mobileCommentOpener-commentCount'>
+							<p className='video-detail__comments-number'>
 								Comments <span>{videoDetail?.statistics?.commentCount}</span>
 							</p>
-							<div className='videoDetail__mobileCommentOpener-comment'>
+							<div className='video-detail__first-comment'>
 								<div
-									className='videoDetail__mobileCommentOpener-comment-image'
+									className='video-detail__comment-image'
 									style={{
 										backgroundImage: `url(${comments[0]?.snippet?.topLevelComment?.snippet?.authorProfileImageUrl})`,
 									}}
 								></div>
-								<p className='videoDetail__mobileCommentOpener-comment-text'>
+								<p className='video-detail__comment-text'>
 									{comments[0]?.snippet?.topLevelComment?.snippet?.textDisplay.substring(
 										0,
 										120
@@ -236,19 +238,17 @@ export default function VideoDetail() {
 				<div
 					className={
 						isCommentMobileDisplayed
-							? 'videoDetail__comments-mobile videoDetail__comments-mobile--active'
-							: 'videoDetail__comments-mobile'
+							? 'video-detail__mobile-comments video-detail__mobile-comments--active'
+							: 'video-detail__mobile-comments'
 					}
 				>
-					<div className='videoDetail__comments-mobile-topPanel'>
-						<p className='videoDetail__comments-mobile-topPanel-title'>
-							Comments
-						</p>
+					<div className='video-detail__comments-mobile-top'>
+						<p className='video-detail__comments-mobile-title'>Comments</p>
 						<button
 							onClick={() => {
 								setIsCommentMobileDisplayed(false);
 							}}
-							className='videoDetail__comments-mobile-topPanel-button'
+							className='video-detail__comments-mobile-close-btn'
 						>
 							<AiOutlineClose />
 						</button>
@@ -263,17 +263,17 @@ export default function VideoDetail() {
 				<div
 					className={
 						isAboutMobileDisplayed
-							? 'videoDetail__about-mobile videoDetail__about-mobile--active'
-							: 'videoDetail__about-mobile'
+							? 'video-detail__mobile-about video-detail__mobile-about--active'
+							: 'video-detail__mobile-about'
 					}
 				>
-					<div className='videoDetail__about-mobile-topPanel'>
-						<p className='videoDetail__about-mobile-topPanel-title'>About</p>
+					<div className='video-detail__about-mobile-top'>
+						<p className='video-detail__about-mobile-title'>About</p>
 						<button
 							onClick={() => {
 								setIsAboutMobileDisplayed(false);
 							}}
-							className='videoDetail__about-mobile-topPanel-button'
+							className='video-detail__about-mobile-close-btn'
 						>
 							<AiOutlineClose />
 						</button>
@@ -286,7 +286,7 @@ export default function VideoDetail() {
 				</div>
 
 				{/* Videos */}
-				<div className='videoDetail__videos'>
+				<div className='video-detail__videos'>
 					{videos ? <Videos videos={videos} /> : <LoadingSpinner />}
 				</div>
 			</div>

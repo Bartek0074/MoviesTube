@@ -1,20 +1,20 @@
 @use './variables';
 
-.videoDetail {
+.video-detail {
 	position: relative;
-	height: calc(100vh - 49px);
 	padding: 0 0.5em;
+	height: calc(100vh - 49px);
 	overflow: scroll;
-	&Wrapper {
+	&-wrapper {
+		margin: 0 auto;
 		width: 100%;
 		max-width: 1400px;
-		margin: 0 auto;
 	}
-	&__video-wrapper {
-		margin-top: 0.5em;
+	&__video-box {
 		position: relative;
+		margin-top: 0.5em;
 		padding-top: 56.25%;
-		.videoDetail__video {
+		.video-detail__video {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -22,36 +22,39 @@
 			height: 100%;
 		}
 	}
-	&__comments-mobile,
-	&__about-mobile {
-		background-color: variables.$background-color;
-		z-index: 1;
+	&__mobile-comments,
+	&__mobile-about {
 		position: fixed;
+		z-index: 1;
 		top: 49px;
-		bottom: 0;
 		left: 0;
+		bottom: 0;
 		width: 100%;
 		height: 0;
 		opacity: 0;
-		transition: opacity 0.3s;
+		background-color: variables.$background-color;
 		overflow: scroll;
-		&-topPanel {
-			position: sticky;
-			top: 0;
-			background-color: variables.$background-color;
-			padding: 0.5em 0.75em;
+		transition: opacity 0.3s;
+		.video-detail__comments-mobile-top,
+		.video-detail__about-mobile-top {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
+			position: sticky;
+			top: 0;
+			padding: 0.5em 0.75em;
+			background-color: variables.$background-color;
 			border-bottom: 1px solid variables.$dark-gray;
-			&-title {
+			.video-detail__about-mobile-title,
+			.video-detail__comments-mobile-title {
 				font-size: 1.8rem;
 				font-weight: bold;
 				color: variables.$font-color;
 				text-transform: uppercase;
 			}
-			&-button {
+			.video-detail__comments-mobile-close-btn,
+			.video-detail__about-mobile-close-btn {
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -64,95 +67,95 @@
 			}
 		}
 		&--active {
-			opacity: 1;
 			height: calc(100vh - 49px);
+			opacity: 1;
 		}
 	}
 
 	&__details {
 		margin: 0.5em 0;
-		&-title {
+		.video-detail__title {
 			margin: 0.5em 0 0.25em;
 			color: variables.$font-color;
 			font-size: 1.8rem;
 		}
-		&-info-mobile {
+		.video-detail__mobile-about-opener {
 			display: flex;
 			flex-direction: row;
 			margin: 0.25em 0;
 			cursor: pointer;
-			&-views,
-			&-date,
-			&-more {
+			.video-detail__views,
+			.video-detail__date,
+			.video-detail__show-more {
+				margin-right: 0.75em;
 				color: variables.$font-color-darker;
 				font-weight: lighter;
-				margin-right: 0.75em;
 				font-size: 1.3rem;
 			}
-			&-more {
+			.video-detail__show-more {
 				margin-right: 0;
 				font-weight: normal;
 			}
 		}
-		&-channel {
-			margin: 1em 0;
+		.video-detail__channel {
 			display: flex;
 			flex-direction: column;
+			margin: 1em 0;
 			&-info {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				&-image {
+				.video-detail__channel-image {
+					margin-right: 0.75em;
 					width: 40px;
 					height: 40px;
 					background-position: center;
 					background-size: cover;
 					border-radius: 50%;
-					margin-right: 0.75em;
 					cursor: pointer;
 				}
-				&-name {
+				.video-detail__channel-name {
 					display: flex;
 					flex-direction: row;
 					align-items: center;
 					cursor: pointer;
-					&-title {
+					.video-detail__channel-title {
+						margin-right: 0.5em;
 						font-size: 1.3rem;
 						font-weight: bold;
-						margin-right: 0.5em;
 					}
-					&-subscribers {
+					.video-detail__channel-subs {
 						font-size: 1.1rem;
 					}
-					&-subscribe-button {
-						margin-left: auto;
-						padding: 0.4em 0.8em;
-						border-radius: 20px;
-						font-size: 1.6rem;
-						border: none;
-						background-color: variables.$main-color-light;
-						cursor: pointer;
-						transition: background-color 0.3s;
-						&:hover {
-							background-color: variables.$main-color;
-						}
+				}
+				.video-detail__subscribe-btn {
+					margin-left: auto;
+					padding: 0.4em 0.8em;
+					border-radius: 20px;
+					font-size: 1.6rem;
+					border: none;
+					background-color: variables.$main-color-light;
+					cursor: pointer;
+					transition: background-color 0.3s;
+					&:hover {
+						background-color: variables.$main-color;
 					}
 				}
 			}
-			&-buttons {
+			.video-detail__buttons {
 				display: flex;
 				margin-top: 1em;
 				overflow-x: scroll;
-				&-likes {
+				.video-detail__likes {
 					display: flex;
-					border-radius: 20px;
 					margin: 0 0.25em;
+					border-radius: 20px;
 				}
-				&-likes-like,
-				&-likes-dislike,
-				&-share,
-				&-download,
-				&-save {
+				.video-detail__like-btn,
+				.video-detail__dislike-btn,
+				.video-detail__share-btn,
+				.video-detail__download-btn,
+				.video-detail__save-btn {
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -171,48 +174,45 @@
 						font-size: 1.8rem;
 					}
 				}
-				&-likes-like {
+				.video-detail__like-btn {
 					border-right: 1px solid variables.$dark-gray;
 					border-top-right-radius: 0;
 					border-bottom-right-radius: 0;
 				}
-				&-likes-dislike {
+				.video-detail__dislike-btn {
 					border-top-left-radius: 0;
 					border-bottom-left-radius: 0;
 				}
-				&-share,
-				&-download,
-				&-save {
+				.video-detail__share-btn,
+				.video-detail__download-btn,
+				.video-detail__save-btn {
 					margin: 0 0.25em;
 				}
 			}
 		}
 	}
 
-	&__about-desktop {
+	&__desktop-about,
+	&__desktop-comments {
 		display: none;
 	}
 
-	&__comments-dekstop {
-		display: none;
-	}
-
-	&__mobileCommentOpener {
-		background-color: variables.$light-gray;
-		padding: 1em;
-		border-radius: 10px;
+	&__mobile-comments-opener {
 		margin-bottom: 1em;
+		padding: 1em;
+		background-color: variables.$light-gray;
+		border-radius: 10px;
 		cursor: pointer;
 		transition: background-color 0.3s;
 		&:hover {
 			background-color: variables.$gray;
 		}
-		&-commentCount {
+		.video-detail__comments-number {
 			display: flex;
 			align-items: center;
+			margin-bottom: 0.75em;
 			font-size: 1.4rem;
 			font-weight: bold;
-			margin-bottom: 0.75em;
 			span {
 				margin-left: 0.5em;
 				font-size: 1.3rem;
@@ -220,21 +220,21 @@
 				color: variables.$font-color-darker;
 			}
 		}
-		&-comment {
+		.video-detail__first-comment {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			&-image {
+			.video-detail__comment-image {
 				width: 35px;
 				height: 35px;
 				background-position: center;
 				background-size: cover;
 				border-radius: 50%;
 			}
-			&-text {
+			.video-detail__comment-text {
 				margin: 0 0.75em;
-				width: 75%;
+				width: 80%;
 				font-size: 1.2rem;
 				color: variables.$font-color-darker;
 			}
@@ -246,17 +246,17 @@
 }
 
 @media (min-width: 576px) {
-	.videoDetail {
+	.video-detail {
 		height: calc(100vh - 67px);
-		&__comments-mobile,
-		&__about-mobile {
+		&__mobile-comments,
+		&__mobile-about {
 			top: 67px;
 			&--active {
 				height: calc(100vh - 67px);
 			}
 		}
 
-		&__mobileCommentOpener {
+		&__mobile-comments-opener {
 			&-comment {
 				&-text {
 					width: 85%;
@@ -271,44 +271,37 @@
 }
 
 @media (min-width: 768px) {
-	.videoDetail {
+	.video-detail {
 		height: calc(100vh - 74px);
-		&Wrapper {
+		&-wrapper {
 			display: grid;
 			grid-template-columns: 65% 35%;
 		}
-		&__mobileCommentOpener,
-		&__comments-mobile,
-		&__about-mobile {
+		&__mobile-comments-opener,
+		&__mobile-comments,
+		&__mobile-about {
 			display: none;
 		}
 		&__video-wrapper {
 			grid-column: 1/2;
 		}
-		&__about-desktop {
+		&__details {
+			grid-column: 1/2;
+			.video-detail__title {
+				margin: 0.75em 0 0.25em;
+			}
+			.video-detail__mobile-about-opener {
+				display: none;
+			}
+		}
+		&__desktop-about {
 			display: block;
 			grid-column: 1/2;
 			margin-bottom: 0.5em;
 		}
-		&__details {
-			grid-column: 1/2;
-			&-title {
-				margin: 0.75em 0 0.25em;
-			}
-			&-info-mobile {
-				display: none;
-			}
-		}
-		&__comments-dekstop {
+		&__desktop-comments {
 			display: block;
 			grid-column: 1/2;
-			.videoDetail__video {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 50%;
-				height: 100%;
-			}
 		}
 		&__videos {
 			margin-left: 0.25em;
@@ -319,8 +312,8 @@
 }
 
 @media (min-width: 992px) {
-	.videoDetail {
-		&Wrapper {
+	.video-detail {
+		&-wrapper {
 			grid-template-columns: 70% 30%;
 		}
 		&__videos {
@@ -330,27 +323,27 @@
 }
 
 @media (min-width: 1200px) {
-	.videoDetail {
-		&Wrapper {
+	.video-detail {
+		&-wrapper {
 			grid-template-columns: 1fr 300px;
 		}
 		&__details {
-			&-channel {
+			.video-detail__channel {
 				flex-direction: row;
 				justify-content: space-between;
 				align-items: center;
 				&-info {
-					&-image {
+					.video-detail__channel-image {
 						width: 45px;
 						height: 45px;
 					}
-					&-name {
-						&-subscribers {
+					.video-detail__channel-name {
+						.video-detail__channel-subs {
 							margin-right: 1em;
 						}
 					}
 				}
-				&-buttons {
+				.video-detail__buttons {
 					margin-top: 0;
 				}
 			}

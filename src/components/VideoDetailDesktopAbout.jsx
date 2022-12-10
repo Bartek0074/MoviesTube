@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
+
+import { numFormatter } from '../utils/numFormatter.js';
+import { calcDate } from '../utils/calcDate.js';
+import { monthNames } from '../utils/constants.js';
+
 import '../styles/VideoDetailDesktopAbout.scss';
-import { numFormatter } from '../utils/numFormatter';
-import { calcDate } from '../utils/calcDate';
 
 export default function VideoDetailDesktopAbout({ videoDetail }) {
 	const [isAboutOpen, setIsAboutOpen] = useState(false);
@@ -11,33 +14,18 @@ export default function VideoDetailDesktopAbout({ videoDetail }) {
 		setIsAboutOpen(!isAboutOpen);
 	};
 
-	const monthNames = [
-		'Jan',
-		'Feb',
-		'Mar',
-		'Apr',
-		'May',
-		'Jun',
-		'Jul',
-		'Aug',
-		'Sep',
-		'Oct',
-		'Nov',
-		'Dec',
-	];
-
 	return (
 		<>
 			{isAboutOpen ? (
-				<div className='videoDetailDesktopAbout videoDetailDesktopAbout--close'>
-					<div className='videoDetailDesktopAbout__stats'>
-						<p className='videoDetailDesktopAbout__stats-views'>
+				<div className='video-detail-desktop-about video-detail-desktop-about--close'>
+					<div className='video-detail-desktop-about__stats'>
+						<p className='video-detail-desktop-about__views'>
 							{videoDetail?.statistics?.viewCount
 								.toString()
 								.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
 							views
 						</p>
-						<p className='videoDetailDesktopAbout__stats-date'>
+						<p className='video-detail-desktop-about__date'>
 							{
 								monthNames[
 									new Date(videoDetail?.snippet?.publishedAt).getMonth()
@@ -50,12 +38,12 @@ export default function VideoDetailDesktopAbout({ videoDetail }) {
 								.toString()}
 						</p>
 					</div>
-					<p className='videoDetailDesktopAbout__description'>
+					<p className='video-detail-desktop-about__description'>
 						{videoDetail?.snippet?.description}
 					</p>
 					<button
+						className='video-detail-desktop-about__less-btn'
 						onClick={handleClick}
-						className='videoDetailDesktopAbout__stats-less'
 					>
 						Show less
 					</button>
@@ -63,20 +51,20 @@ export default function VideoDetailDesktopAbout({ videoDetail }) {
 			) : (
 				<div
 					onClick={handleClick}
-					className='videoDetailDesktopAbout videoDetailDesktopAbout--open'
+					className='video-detail-desktop-about video-detail-desktop-about--open'
 				>
-					<div className='videoDetailDesktopAbout__stats'>
-						<p className='videoDetailDesktopAbout__stats-views'>
+					<div className='video-detail-desktop-about__stats'>
+						<p className='video-detail-desktop-about__views'>
 							{numFormatter(videoDetail?.statistics?.viewCount)} views
 						</p>
-						<p className='videoDetailDesktopAbout__stats-date'>
+						<p className='video-detail-desktop-about__date'>
 							{calcDate(new Date(videoDetail?.snippet?.publishedAt))}
 						</p>
 					</div>
-					<p className='videoDetailDesktopAbout__description'>
+					<p className='video-detail-desktop-about__description'>
 						{videoDetail?.snippet?.description?.substring(0, 250) + '...'}
 					</p>
-					<p className='videoDetailDesktopAbout__stats-more'>Show more</p>
+					<p className='video-detail-desktop-about__more'>Show more</p>
 				</div>
 			)}
 		</>

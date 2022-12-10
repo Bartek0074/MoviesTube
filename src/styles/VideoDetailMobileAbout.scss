@@ -1,12 +1,12 @@
 @use './variables';
 
-.videoDetailMobileAbout {
-    background-color: variables.$background-color;
-	padding: 0em 0.5em;
+.video-detail-mobile-about {
+	padding: 0em 0.75em;
+	background-color: variables.$background-color;
 	&__title {
+		margin-top: 1.5em;
 		font-weight: bold;
 		font-size: 1.7rem;
-		margin-top: 1.5em;
 	}
 	&__stats {
 		display: flex;
@@ -15,16 +15,16 @@
 		align-items: center;
 		padding: 1.5em 0;
 		border-bottom: 1px solid variables.$dark-gray;
-		&-stat {
+		.video-detail-mobile-about__stat {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			&-value {
+			.video-detail-mobile-about__value {
 				font-size: 1.4rem;
 				font-weight: bold;
 			}
-			&-label {
+			.video-detail-mobile-about__label {
 				font-size: 1.2rem;
 				color: variables.$font-color-darker;
 			}
@@ -44,19 +44,22 @@
 		cursor: pointer;
 		&-image {
 			margin-right: 1em;
-			background-size: cover;
-			background-position: center;
 			width: 60px;
 			height: 60px;
+			background-size: cover;
+			background-position: center;
 			border-radius: 50%;
+			transition: box-shadow 0.3s;
+			&:hover {
+				box-shadow: 0 0 6px variables.$dark-gray;
+			}
 		}
 		&-info {
-			&-title {
+			.video-detail-mobile-about__channel-name {
 				font-weight: bold;
 				font-size: 1.5rem;
-				margin-bottom: 0.25em;
 			}
-			&-subscribers {
+			.video-detail-mobile-about__subs {
 				font-size: 1.3rem;
 				color: variables.$font-color-darker;
 			}

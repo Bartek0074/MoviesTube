@@ -1,9 +1,23 @@
 @use './variables';
 
-.videoDetailDesktopAbout {
+.video-detail-desktop-about {
+	padding: 1em;
 	background-color: variables.$light-gray;
 	border-radius: 10px;
-	padding: 1em;
+	&--close {
+		.video-detail-desktop-about__less-btn {
+			color: variables.$font-color;
+			font-size: 1.6rem;
+			background: none;
+			border: none;
+			cursor: pointer;
+			transition: color 0.3s;
+			&:hover {
+				color: variables.$font-color-darker;
+			}
+		}
+	}
+
 	&--open {
 		cursor: pointer;
 		transition: background-color 0.3s;
@@ -16,30 +30,20 @@
 		flex-direction: row;
 		align-items: center;
 		margin-bottom: 0.5em;
-		&-views,
-		&-date {
+		.video-detail-desktop-about__views,
+		.video-detail-desktop-about__date {
 			font-size: 1.6rem;
 		}
-		&-date {
+		.video-detail-desktop-about__date {
 			margin-left: 0.5em;
 		}
 	}
-	&__description {
-		color: variables.$font-color-darker;
-		margin: 0.5em 0;
+	.video-detail-desktop-about__more {
 		font-size: 1.6rem;
 	}
-	&--close {
-		.videoDetailDesktopAbout__stats-less {
-			border: none;
-			background: none;
-			color: variables.$font-color;
-            font-size: 1.6rem;
-            cursor: pointer;
-            transition: color .3s;
-            &:hover {
-                color: variables.$font-color-darker;
-            }
-		}
+	&__description {
+		margin: 0.5em 0;
+		color: variables.$font-color-darker;
+		font-size: 1.6rem;
 	}
 }

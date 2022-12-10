@@ -1,79 +1,69 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { numFormatter } from '../utils/numFormatter';
+
+import { numFormatter } from '../utils/numFormatter.js';
+import { monthNames } from '../utils/constants.js';
+
 import '../styles/VideoDetailMobileAbout.scss';
 
-export default function VideoDetailMobileAbout({ channelDetail, videoDetail, setIsAboutMobileDisplayed }) {
-	const monthNames = [
-		'Jan',
-		'Feb',
-		'Mar',
-		'Apr',
-		'May',
-		'Jun',
-		'Jul',
-		'Aug',
-		'Sep',
-		'Oct',
-		'Nov',
-		'Dec',
-	];
+export default function VideoDetailMobileAbout({ channelDetail, videoDetail }) {
 	const navigate = useNavigate();
 	const navigateToChannel = () => {
 		navigate(`/channel/${videoDetail?.snippet?.channelId}`);
 	};
+
 	return (
-		<div className='videoDetailMobileAbout'>
-			<p className='videoDetailMobileAbout__title'>
+		<div className='video-detail-mobile-about'>
+			<p className='video-detail-mobile-about__title'>
 				{videoDetail?.snippet?.title}
 			</p>
-			<div className='videoDetailMobileAbout__stats'>
-				<div className='videoDetailMobileAbout__stats-stat'>
-					<p className='videoDetailMobileAbout__stats-stat-value'>
+			<div className='video-detail-mobile-about__stats'>
+				<div className='video-detail-mobile-about__stat'>
+					<p className='video-detail-mobile-about__value'>
 						{videoDetail?.statistics?.likeCount
 							.toString()
 							.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
 					</p>
-					<p className='videoDetailMobileAbout__stats-stat-label'>likes</p>
+					<p className='video-detail-mobile-about__label'>likes</p>
 				</div>
-				<div className='videoDetailMobileAbout__stats-stat'>
-					<p className='videoDetailMobileAbout__stats-stat-value'>
+				<div className='video-detail-mobile-about__stat'>
+					<p className='video-detail-mobile-about__value'>
 						{videoDetail?.statistics?.viewCount
 							.toString()
 							.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}
 					</p>
-					<p className='videoDetailMobileAbout__stats-stat-label'>views</p>
+					<p className='video-detail-mobile-about__label'>views</p>
 				</div>
-				<div className='videoDetailMobileAbout__stats-stat'>
-					<p className='videoDetailMobileAbout__stats-stat-value'>
+				<div className='video-detail-mobile-about__stat'>
+					<p className='video-detail-mobile-about__value'>
 						{new Date(videoDetail?.snippet?.publishedAt).getDate()}{' '}
 						{monthNames[new Date(videoDetail?.snippet?.publishedAt).getMonth()]}
 					</p>
-					<p className='videoDetailMobileAbout__stats-stat-label'>
+					<p className='video-detail-mobile-about__label'>
 						{new Date(videoDetail?.snippet?.publishedAt)
 							.getFullYear()
 							.toString()}
 					</p>
 				</div>
 			</div>
-			<p className='videoDetailMobileAbout__description'>
+			<p className='video-detail-mobile-about__description'>
 				{videoDetail?.snippet?.description}
 			</p>
 			<div
+				className='video-detail-mobile-about__channel'
 				onClick={navigateToChannel}
-				className='videoDetailMobileAbout__channel'
 			>
 				<div
-					className='videoDetailMobileAbout__channel-image'
+					className='video-detail-mobile-about__channel-image'
 					style={{
 						backgroundImage: `url(${channelDetail?.snippet?.thumbnails?.default?.url})`,
 					}}
 				></div>
-				<div className='videoDetailMobileAbout__channel-info'>
-					<p className='videoDetail__about-mobile-channel-info-title'>
+				<div className='video-detail-mobile-about__channel-info'>
+					<p className='video-detail-mobile-about__channel-name'>
 						{channelDetail?.snippet?.title}
 					</p>
-					<p className='videoDetailMobileAbout__channel-info-subscribers'>
+					<p className='video-detail-mobile-about__subs'>
 						{numFormatter(channelDetail?.statistics?.subscriberCount)}{' '}
 						subscribers
 					</p>
