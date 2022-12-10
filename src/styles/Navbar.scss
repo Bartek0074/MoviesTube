@@ -11,7 +11,7 @@
 	background-color: variables.$background-color;
 	max-width: 1400px;
 	padding: 0.5em;
-	&__homeBtn {
+	&__home-btn {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -23,7 +23,7 @@
 		border: none;
 		background: none;
 		cursor: pointer;
-		span:first-child {
+		.navbar__heading:first-child {
 			color: variables.$font-color;
 		}
 		&-icon {
@@ -34,7 +34,7 @@
 			transition: transform 0.75s cubic-bezier(0.455, 0.03, 0.515, 0.955),
 				color 0.9s;
 		}
-		&:hover .navbar__homeBtn-icon {
+		&:hover .navbar__home-btn-icon {
 			transform: rotateY(360deg);
 			color: variables.$main-color;
 		}
@@ -42,12 +42,13 @@
 			text-decoration: none;
 		}
 	}
-	form {
+	&__form {
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		margin: 0 auto;
-		input {
+		.navbar__input {
 			padding-left: 0.4em;
 			width: 70%;
 			height: 28px;
@@ -63,7 +64,7 @@
 				border-color: variables.$main-color;
 			}
 		}
-		button {
+		.navbar__search-btn {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -89,20 +90,20 @@
 @media (min-width: 576px) {
 	.navbar {
 		padding: 1em 0.5em;
-		&__homeBtn {
+		&__home-btn {
 			font-size: 2rem;
 			&-icon {
 				font-size: 2.5rem;
 			}
 		}
-		form {
-			input {
-				width: 100%;
+		&__form {
+			.navbar__input {
+				width: 50%;
 				height: 32px;
 				padding-left: 0.5em;
 				font-size: 1.8rem;
 			}
-			button {
+			.navbar__search-btn {
 				height: 32px;
 				font-size: 1.6rem;
 			}
@@ -112,19 +113,20 @@
 
 @media (min-width: 768px) {
 	.navbar {
-		&__homeBtn {
+		&__home-btn {
 			font-size: 2.2rem;
 			&-icon {
 				font-size: 2.7rem;
 			}
 		}
-		form {
-			input {
+		&__form {
+			.navbar__input {
+				width: 40%;
 				height: 36px;
 				padding-left: 0.75em;
 				font-size: 2rem;
 			}
-			button {
+			.navbar__search-btn {
 				height: 36px;
 				font-size: 1.8rem;
 			}

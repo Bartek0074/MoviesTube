@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Sidebar, Videos } from './index';
+
+import { Sidebar, Videos, LoadingSpinner } from './index';
+
 import { fetchFromAPI } from '../utils/fetchFromAPI';
-import LoadingSpinner from './LoadingSpinner';
+
 import '../styles/Feed.scss';
 
 export default function Feed() {

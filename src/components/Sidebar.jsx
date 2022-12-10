@@ -1,24 +1,25 @@
 import React from 'react';
+
 import { categories } from '../utils/constants';
+
 import '../styles/Sidebar.scss';
 
 export default function Sidebar({ selectedCategory, setSelectedCategory }) {
-
 	return (
-		<div className='categories'>
+		<div className='sidebar'>
 			{categories.map((category, id) => {
 				return (
 					<button
 						className={
 							selectedCategory === category.name
-								? 'category-button category-button--active'
-								: 'category-button'
+								? 'sidebar__button sidebar__button--active'
+								: 'sidebar__button'
 						}
 						onClick={() => setSelectedCategory(category.name)}
 						key={id}
 					>
-						<span>{category.icon}</span>
-						<span>{category.name}</span>
+						<span className='sidebar__category-icon'>{category.icon}</span>
+						<span className='sidebar__category-name'>{category.name}</span>
 					</button>
 				);
 			})}

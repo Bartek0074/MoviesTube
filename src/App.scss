@@ -10,21 +10,21 @@
 
 body {
 	scrollbar-width: thin; /* "auto" or "thin" */
-	scrollbar-color: #222 #22222222; /* scroll thumb and track */
+	scrollbar-color: variables.$scrollbar-thumb-color variables.$scrollbar-track-color; /* scroll thumb and track */
 }
 
-body::-webkit-scrollbar {
-	width: 12px; /* width of the entire scrollbar */
+::-webkit-scrollbar {
+	width: 8px; /* width of the entire scrollbar */
 }
 
-body::-webkit-scrollbar-track {
-	background: #22222222; /* color of the tracking area */
+::-webkit-scrollbar-track {
+	background: variables.$scrollbar-track-color; /* color of the tracking area */
 }
 
-body::-webkit-scrollbar-thumb {
-	background-color: #222; /* color of the scroll thumb */
+::-webkit-scrollbar-thumb {
+	background-color: variables.$scrollbar-thumb-color; /* color of the scroll thumb */
 	border-radius: 20px; /* roundness of the scroll thumb */
-	border: 3px solid #22222222; /* creates padding around scroll thumb */
+	border: 3px solid variables.$scrollbar-track-color; /* creates padding around scroll thumb */
 }
 
 html {

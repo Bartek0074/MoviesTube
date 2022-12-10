@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Comment from './Comment';
+
+import { Comment } from './index.js';
+
 import '../styles/Comments.scss';
 
-export default function Comments({ comments, navigateToChannel }) {
+export default function Comments({ comments }) {
 	const [numberOfComments, setNumberOfComments] = useState(10);
 
 	const showMoreComments = () => {

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Videos } from './index';
+
+import { Videos, LoadingSpinner } from './index';
+
 import { fetchFromAPI } from '../utils/fetchFromAPI';
+
 import '../styles/SearchFeed.scss';
-import LoadingSpinner from './LoadingSpinner';
 
 export default function SearchFeed() {
 	const { searchTerm } = useParams();
@@ -17,9 +19,9 @@ export default function SearchFeed() {
 	}, [searchTerm]);
 
 	return (
-		<div className='searchFeed'>
-			<p className='searchFeed__title'>
-				Search results for <span>{searchTerm}</span> videos
+		<div className='search-feed'>
+			<p className='search-feed__title'>
+				Search results for <span className='search-feed__search-term'>{searchTerm}</span> videos
 			</p>
 			{videos[0] ? <Videos videos={videos} /> : <LoadingSpinner />}
 		</div>

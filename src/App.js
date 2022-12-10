@@ -1,5 +1,5 @@
-import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import {
 	Navbar,
 	Feed,
@@ -7,6 +7,8 @@ import {
 	ChannelDetail,
 	SearchFeed,
 } from './components/index.js';
+
+import './App.scss';
 
 function App() {
 	return (

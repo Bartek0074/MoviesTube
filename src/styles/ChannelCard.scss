@@ -1,32 +1,45 @@
 @use 'variables';
 
-.channelCard {
+.channel-card {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	&__img {
-		cursor: pointer;
-		&-image {
-			height: 150px;
+	&__link-img {
+		.channel-card__img {
 			width: 150px;
+			height: 150px;
 			background-position: center;
 			background-size: cover;
 			border-radius: 50%;
+			cursor: pointer;
+			transition: box-shadow .3s;
+			&:hover{
+				box-shadow: 0 0 6px variables.$dark-gray;
+			}
 		}
 	}
-	&__title {
-		margin-top: 0.75em;
+	&__link-title {
 		display: flex;
-		font-size: 1.8rem;
+		align-items: center;
+		margin-top: 0.75em;
+		font-size: 1.6rem;
 		color: variables.$font-color;
+		transition: color .3s;
+		&:hover {
+			color: variables.$font-color-darker;
+		}
 		&:link {
 			text-decoration: none;
 		}
-		p {
-			margin-right: 3px;
+		.channel-card__title {
+			margin-right: 4px;
+		}
+		.channel-card__icon{
+			font-size: 1.6rem;
+			color: variables.$font-color-darker;
 		}
 	}
 }

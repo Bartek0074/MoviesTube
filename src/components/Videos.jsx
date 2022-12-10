@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { VideoCard, ChannelCard } from './index';
+
 import '../styles/Videos.scss';
 
 export default function Videos({ videos }) {

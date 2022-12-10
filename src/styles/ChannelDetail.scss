@@ -1,31 +1,31 @@
 @use 'variables';
 
-.channelDetail {
-	width: 100%;
-	padding: 0 0.5em;
-	max-width: 1400px;
+.channel-detail {
 	margin: 0 auto;
+	padding: 0 0.5em;
+	width: 100%;
+	max-width: 1400px;
 	&__bannerImage {
 		position: relative;
-		background-position: center;
-		background-size: cover;
 		width: 100%;
 		aspect-ratio: 5/1;
+		background-position: center;
+		background-size: cover;
 		border-radius: 5px;
 	}
 	&__details {
-		margin-top: 0.375em;
 		display: flex;
 		flex-direction: column;
-		&-first-box {
+		margin-top: 0.375em;
+		.channel-detail__first-box {
 			display: flex;
 			flex-direction: column;
-			&-thumbnail {
+			.channel-detail__thumbnail {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				margin: 1em 0;
-				&-image {
+				.channel-detail__thumbnail-image {
 					width: 60px;
 					height: 60px;
 					background-position: center;
@@ -35,49 +35,49 @@
 				}
 			}
 			&-info {
-				&-title {
+				.channel-detail__title {
 					font-size: 1.8rem;
 					font-weight: normal;
 					text-align: center;
 					letter-spacing: 0.5px;
 				}
-				&-stats {
+				.channel-detail__stats {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					width: 100%;
 					margin: 0.25em;
+					width: 100%;
 					font-size: 1.2rem;
-					span {
+					.channel-detail__stats-element {
 						text-align: center;
 					}
 				}
 			}
 		}
-		&-second-box {
-			&-buttons {
-				margin: 1em 0;
+		.channel-detail__second-box {
+			.channel-detail__buttons {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				&-sub,
-				&-join {
+				margin: 1em 0;
+				.channel-detail__sub-btn,
+				.channel-detail__join-btn {
 					width: 45%;
 					margin: 0.25em;
 					padding: 0.4em 0;
-					border-radius: 20px;
 					font-size: 1.6rem;
 					border: none;
+					border-radius: 20px;
 					cursor: pointer;
 					transition: background-color 0.3s;
 				}
-				&-sub {
+				.channel-detail__sub-btn {
 					background-color: variables.$main-color-light;
 					&:hover {
 						background-color: variables.$main-color;
 					}
 				}
-				&-join {
+				.channel-detail__join-btn {
 					background-color: variables.$light-gray;
 					&:hover {
 						background-color: variables.$gray;
@@ -86,33 +86,34 @@
 			}
 		}
 	}
-	&__buttons {
+	&__options {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-bottom: 1px solid variables.$dark-gray;
 		margin-bottom: 1.5em;
-		&-button {
+		border-bottom: 1px solid variables.$gray;
+		.channel-detail__option {
 			position: relative;
-			border: none;
-			background: none;
+			padding: 1em 3em;
 			color: variables.$font-color-darker;
 			text-transform: uppercase;
-			padding: 1em 3em;
+			background: none;
+			border: none;
+			border-bottom: 2px solid transparent;
 			cursor: pointer;
 			transition: color 0.3s, border-bottom-color 0.3s;
-			border-bottom: 2px solid transparent;
 			&:hover {
 				color: variables.$font-color;
+				border-bottom-color: variables.$dark-gray;
 			}
 			&--active {
 				color: variables.$font-color;
-				border-bottom-color: variables.$dark-gray;
+				border-bottom-color: variables.$gray;
 			}
 		}
 	}
 	&__about {
-		&-description {
+		.channel-detail__description {
 			margin: 1.25em 0;
 			&-title {
 				margin-bottom: 0.5em;
@@ -123,20 +124,18 @@
 				font-size: 1.4rem;
 			}
 		}
-		&-info {
+		.channel-detail__info {
 			margin: 1.25em 0;
 			&-title {
 				margin-bottom: 0.5em;
 				font-size: 1.6rem;
 				font-weight: bolder;
 			}
-			&-country,
-			&-joined,
-			&-views {
-				margin: 0.375em 0;
+			&-element {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
+				margin: 0.375em 0;
 				font-size: 1.4rem;
 				.icon {
 					margin-right: 0.5em;
@@ -145,27 +144,29 @@
 			}
 		}
 	}
-	&__videos{
-		&-info{
+	&__videos {
+		&-info {
 			text-align: center;
 		}
 	}
 }
 @media (min-width: 576px) {
-	.channelDetail {
+	.channel-detail {
 		&__bannerImage {
 			aspect-ratio: 6/1;
 		}
 		&__details {
-			&-thumbnail {
-				&-image {
-					width: 70px;
-					height: 70px;
+			.channel-detail__first-box {
+				.channel-detail__thumbnail {
+					.channel-detail__thumbnail-image {
+						width: 70px;
+						height: 70px;
+					}
 				}
 			}
 		}
 		&__about {
-			&-description {
+			.channel-detail__description {
 				margin: 1.5em 0;
 				&-title {
 					font-size: 1.7rem;
@@ -174,14 +175,12 @@
 					font-size: 1.5rem;
 				}
 			}
-			&-info {
+			.channel-detail__info {
 				margin: 1.25em 0;
 				&-title {
 					font-size: 1.7rem;
 				}
-				&-country,
-				&-joined,
-				&-views {
+				&-element {
 					margin: 0.5em 0;
 					font-size: 1.5rem;
 					.icon {
@@ -194,32 +193,32 @@
 }
 
 @media (min-width: 768px) {
-	.channelDetail {
+	.channel-detail {
 		&__details {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			&-first-box {
+			.channel-detail__first-box {
 				flex-direction: row;
 				justify-content: center;
 				align-items: center;
-				&-thumbnail {
-					&-image {
+				.channel-detail__thumbnail {
+					.channel-detail__thumbnail-image {
+						margin: 0 1em;
 						width: 90px;
 						height: 90px;
-						margin: 0 1em;
 					}
 				}
 				&-info {
-					&-title {
+					.channel-detail__title {
 						text-align-last: left;
 					}
-					&-stats {
+					.channel-detail__stats {
 						flex-direction: column;
 						align-items: start;
 						margin: 0.3em 0;
-						span {
+						.channel-detail__stats-element {
 							margin: 0.15em 0;
 						}
 						.icon {
@@ -228,15 +227,15 @@
 					}
 				}
 			}
-			&-second-box {
-				&-buttons {
-					width: 90%;
+			.channel-detail__second-box {
+				.channel-detail__buttons {
 					justify-content: flex-end;
-					&-sub,
-					&-join {
-						width: auto;
+					width: 90%;
+					.channel-detail__sub-btn,
+					.channel-detail__join-btn {
 						margin: 0.5em;
 						padding: 0.5em 1.5em;
+						width: auto;
 						font-size: 1.7rem;
 					}
 				}

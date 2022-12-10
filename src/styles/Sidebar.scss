@@ -1,12 +1,12 @@
 @use 'variables';
 
-.categories {
+.sidebar {
 	display: flex;
 	flex-direction: row;
 	padding: 0.5em 0;
 	background-color: variables.$background-color;
 	overflow-x: scroll;
-	.category-button {
+	&__button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -26,12 +26,13 @@
 		&--active {
 			background-color: variables.$main-color-light;
 		}
-		span {
+		.sidebar__category-icon,
+		.sidebar__category-name {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-		span:first-child {
+		.sidebar__category-icon {
 			margin-right: 0.5em;
 			transform: scale(1.1);
 		}
@@ -39,10 +40,10 @@
 }
 
 @media (min-width: 768px) {
-	.categories {
+	.sidebar {
 		flex-direction: column;
 		padding-right: 1em;
-		.category-button {
+		&__button {
 			margin: 0.375em;
 			padding: 0.25em 0.5em;
 			font-size: 1.6rem;

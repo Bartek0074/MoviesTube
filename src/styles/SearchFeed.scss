@@ -1,21 +1,22 @@
 @use 'variables';
 
-.searchFeed {
+.search-feed {
 	width: 100%;
-	padding: 0 0.5em;
 	max-width: 1400px;
 	margin: 0 auto;
+	padding: 0 0.5em;
 	&__title {
 		margin: 0.5em 1em;
+		margin-left: 0.25em;
 		font-size: 1.8rem;
-		span {
+		.search-feed__search-term {
 			color: variables.$main-color;
 		}
 	}
 }
 
 @media (min-width: 576px) {
-	.searchFeed {
+	.search-feed {
 		&__title {
 			font-size: 2rem;
 		}
@@ -23,7 +24,7 @@
 }
 
 @media (min-width: 768px) {
-	.searchFeed {
+	.search-feed {
 		&__title {
 			font-size: 2.6rem;
 		}
@@ -31,7 +32,7 @@
 }
 
 @media (min-width: 992px) {
-	.searchFeed {
+	.search-feed {
 		&__title {
 			font-size: 3.2rem;
 		}
