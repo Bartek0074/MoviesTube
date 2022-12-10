@@ -193,7 +193,7 @@ export default function VideoDetail() {
 
 				{/* Comments dekstop */}
 				<div className='video-detail__desktop-comments'>
-					{comments[0] ? (
+					{comments ? (
 						<Comments
 							comments={comments}
 							setIsCommentMobileDisplayed={setIsCommentMobileDisplayed}
@@ -208,7 +208,7 @@ export default function VideoDetail() {
 					onClick={() => setIsCommentMobileDisplayed(true)}
 					className='video-detail__mobile-comments-opener'
 				>
-					{comments[0] ? (
+					{comments ? (
 						<>
 							<p className='video-detail__comments-number'>
 								Comments <span>{videoDetail?.statistics?.commentCount}</span>
@@ -243,7 +243,9 @@ export default function VideoDetail() {
 					}
 				>
 					<div className='video-detail__comments-mobile-top'>
-						<p className='video-detail__comments-mobile-title'>Comments</p>
+						<p className='video-detail__comments-mobile-title'>
+							Comments
+						</p>
 						<button
 							onClick={() => {
 								setIsCommentMobileDisplayed(false);
