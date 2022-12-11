@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# MeteoApp 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the simple video app which is using [YouTube V3 API](https://rapidapi.com/ytdlfree/api/youtube-v31/) from Rapid API. You can watch videos, check channels, read comments, descriptions and more.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+Live Demo [here](https://bartek0074-moviestube.netlify.app/).
 
-### `npm start`
+**NOTE:** I'm using the free version of API, which allows only 500 requests per day. If this limit is exceeded, the page will be not working properly. If this happened, go to [Instructions](#instructions) and install the app with your own API KEY.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![moviestube1](https://user-images.githubusercontent.com/88652468/206906248-c4bf27ea-3c3a-4ff4-b02b-f9e80e61e3a9.gif)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instructions
 
-### `npm run build`
+First clone this repository.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ git clone https://github.com/Bartek0074/MoviesTube.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Get a free api key from Rapid API Youtube V3. Get it [here](https://rapidapi.com/ytdlfree/api/youtube-v31/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a .env file in the root of your project folder and add the following.
 
-### `npm run eject`
+```
+REACT_APP_API_KEY=[YOUR_API_KEY_FROM_RAPID_API_YOUTUBE_V3]
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/) & [`npm`](https://www.npmjs.com/) installed in your system.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$ npm install # or yarn
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Run it
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+$ npm start # or yarn start
+```
 
-## Learn More
+## Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React.js,
+- React Hooks,
+- JavaScript,
+- HTML,
+- SASS,
+- BEM,
+- RWD,
+- Display API Data Using Axios with React,
+- Node packages.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Gifs from app
 
-### Code Splitting
+![moviestube2](https://user-images.githubusercontent.com/88652468/206915419-857e48b1-e48d-42ee-bf5d-713a7ea31d55.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![moviestube3](https://user-images.githubusercontent.com/88652468/206915664-4a7fdc5b-4329-47c5-bc54-8b496969a12c.gif)
 
-### Analyzing the Bundle Size
+![moviestube4](https://user-images.githubusercontent.com/88652468/206923451-867dbe1c-b10d-4af5-ba39-4cd8bf81c5a4.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![moviestube5](https://user-images.githubusercontent.com/88652468/206923505-1bd01551-3ba5-4ba4-8eb0-69129407c226.gif)
