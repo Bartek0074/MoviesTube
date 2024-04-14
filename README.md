@@ -1,6 +1,8 @@
-# MeteoApp 
+# MoviesTube 
 
-This is the simple video app which is using [YouTube V3 API](https://rapidapi.com/ytdlfree/api/youtube-v31/) from Rapid API. You can watch videos, check channels, read comments, descriptions and more.
+MoviesTube is an application that allows users to browse and watch video content, similar to the popular YouTube platform. It utilizes the [YouTube V3 API](https://rapidapi.com/ytdlfree/api/youtube-v31/) available through Rapid API, providing access to a wide range of video content. Users can explore, search, and playback videos and channels according to their interests.
+
+At the moment, work is underway on a new version with Typescript, Zustand, etc.
 
 ## Demo
 
@@ -42,15 +44,16 @@ $ npm start # or yarn start
 
 ## Technologies
 
-- React.js,
-- React Hooks,
-- JavaScript,
-- HTML,
-- SASS,
-- BEM,
-- RWD,
-- Display API Data Using Axios with React,
+- React,
+- SCSS,
+- React Router.
 - Node packages.
+
+## Other packages
+
+- axios,
+- react-icons,
+- react-player.
 
 ## Gifs from app
 
